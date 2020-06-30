@@ -24,10 +24,14 @@ namespace GloboTicket.Services.EventCatalog.Repositories
 
         }
 
-        public async Task<Event> GetEventByiId(string eventId)
+        public async Task<Event> GetEventById(Guid eventId)
         {
-            return await _eventCatalogDbContext.Events.Where(x => x.CategoryId.ToString() == eventId).FirstOrDefaultAsync();
+            return await _eventCatalogDbContext.Events.Where(x => x.EventId == eventId).FirstOrDefaultAsync();
+        }
+
+        public async Task<IEnumerable<Event>> GetEventsForCategory(Guid categoryId)
+        {
+            return await _eventCatalogDbContext.Events.Where(x => x.CategoryId == categoryId).ToListAsync();
         }
     }
-
 }
