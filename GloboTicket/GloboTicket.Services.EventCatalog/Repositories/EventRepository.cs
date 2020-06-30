@@ -21,7 +21,7 @@ namespace GloboTicket.Services.EventCatalog.Repositories
         public async Task<IEnumerable<Event>> GetEvents(Guid categoryId)
         {
             if(categoryId == Guid.Empty)
-                return await _eventCatalogDbContext.Events.ToListAsync();
+                  return await _eventCatalogDbContext.Events.ToListAsync();
             return await _eventCatalogDbContext.Events.Where(x => x.CategoryId == categoryId).ToListAsync();
         }
 
