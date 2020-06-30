@@ -27,7 +27,7 @@ namespace GloboTicket.Services.ShoppingBasket
         public void ConfigureServices(IServiceCollection services)
         {
             // add MVC instead of controllers (=> Swashbuckle) 
-            services.AddMvc(); 
+            services.AddControllers(); 
 
             services.AddSwaggerGen(c =>
             {

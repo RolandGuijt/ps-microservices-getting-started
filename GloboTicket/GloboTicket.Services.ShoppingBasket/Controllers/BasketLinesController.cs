@@ -14,30 +14,34 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
     public class BasketLinesController : ControllerBase
     {
         [HttpGet]
-        public IEnumerable<BasketLine> Get()
+        public ActionResult<IEnumerable<BasketLine>> Get(Guid basketId)
         {
             return new List<BasketLine>();
         }
 
         [HttpGet("{basketLineId}")]
-        public BasketLine Get([FromQuery] Guid basketLineId)
+        public ActionResult<BasketLine> Get(Guid basketId, 
+            [FromQuery] Guid basketLineId)
         {
             return new BasketLine();
         }
 
         [HttpPost]
-        public void Post([FromBody] BasketLineForCreation basketLineForCreation)
+        public void Post(Guid basketId, 
+            [FromBody] BasketLineForCreation basketLineForCreation)
         {
         } 
 
         [HttpPut("{basketLineId}")]
-        public void Put([FromQuery] Guid basketLineId, 
+        public void Put(Guid basketId, 
+            Guid basketLineId, 
             [FromBody] BasketLineForUpdate basketLineForUpdate)
         {
         } 
 
         [HttpDelete("{basketLineId}")]
-        public void Delete(Guid basketLineId)
+        public void Delete(Guid basketId, 
+            Guid basketLineId)
         {
         }
     }

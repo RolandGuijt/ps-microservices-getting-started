@@ -14,13 +14,13 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
     public class BasketsController : ControllerBase
     {  
         [HttpGet("{basketId}")]
-        public Basket Get([FromQuery] Guid basketId)
+        public ActionResult<Basket> Get(Guid basketId)
         {
             return new Basket();
         }
          
         [HttpPost]
-        public void Post([FromBody] BasketForCreation basketForCreation)
+        public async void Post(BasketForCreation basketForCreation)
         {
         }         
     }
