@@ -7,7 +7,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GloboTicket.TicketCatalog
+namespace GloboTicket.Services.ShoppingBasket
 {
     public class Program
     {

@@ -11,7 +11,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 
-namespace GloboTicket.TicketCatalog
+namespace GloboTicket.Services.TicketCatalog
 {
     public class Startup
     {

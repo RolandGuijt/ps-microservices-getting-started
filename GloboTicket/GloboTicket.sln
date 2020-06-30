@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30128.74
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloboTicket.TicketCatalog", "GloboTicket.TicketCatalog\GloboTicket.TicketCatalog.csproj", "{E03E01E8-0F77-4603-8691-EC83B708949F}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloboTicket.Client", "GloboTicket.Client\GloboTicket.Client.csproj", "{0848F9B8-B1CC-412F-9A8C-A09058575A1E}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloboTicket.ShoppingCart", "GloboTicket.ShoppingCart\GloboTicket.ShoppingCart.csproj", "{42C45960-6269-4426-A301-D7933AF8DAF0}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F3632F51-056C-43C5-9E59-8D371E99C8BF}"
 EndProject
@@ -15,32 +11,36 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Client", "Client", "{825D4E
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{949D9BE8-3830-4E81-8F7C-2FCE3882333F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket.Services.ShoppingBasket", "GloboTicket.Services.ShoppingBasket\GloboTicket.Services.ShoppingBasket.csproj", "{CD16338F-F1A0-44F7-834E-7813F3EF63FE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket.Services.TicketCatalog", "GloboTicket.Services.TicketCatalog\GloboTicket.Services.TicketCatalog.csproj", "{9BA9BCA2-A018-4174-BA05-C11C0C16E65F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{E03E01E8-0F77-4603-8691-EC83B708949F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E03E01E8-0F77-4603-8691-EC83B708949F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E03E01E8-0F77-4603-8691-EC83B708949F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E03E01E8-0F77-4603-8691-EC83B708949F}.Release|Any CPU.Build.0 = Release|Any CPU
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{42C45960-6269-4426-A301-D7933AF8DAF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{42C45960-6269-4426-A301-D7933AF8DAF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{42C45960-6269-4426-A301-D7933AF8DAF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{42C45960-6269-4426-A301-D7933AF8DAF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CD16338F-F1A0-44F7-834E-7813F3EF63FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD16338F-F1A0-44F7-834E-7813F3EF63FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD16338F-F1A0-44F7-834E-7813F3EF63FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD16338F-F1A0-44F7-834E-7813F3EF63FE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9BA9BCA2-A018-4174-BA05-C11C0C16E65F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9BA9BCA2-A018-4174-BA05-C11C0C16E65F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9BA9BCA2-A018-4174-BA05-C11C0C16E65F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9BA9BCA2-A018-4174-BA05-C11C0C16E65F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{E03E01E8-0F77-4603-8691-EC83B708949F} = {F3632F51-056C-43C5-9E59-8D371E99C8BF}
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E} = {825D4E4F-3BFF-4546-96AB-8AB83D95722D}
-		{42C45960-6269-4426-A301-D7933AF8DAF0} = {F3632F51-056C-43C5-9E59-8D371E99C8BF}
+		{CD16338F-F1A0-44F7-834E-7813F3EF63FE} = {F3632F51-056C-43C5-9E59-8D371E99C8BF}
+		{9BA9BCA2-A018-4174-BA05-C11C0C16E65F} = {F3632F51-056C-43C5-9E59-8D371E99C8BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {57E1B7AE-99E6-4F8F-977C-CF0FD36BBE42}

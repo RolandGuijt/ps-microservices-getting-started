@@ -4,8 +4,8 @@
     "windowsAuthentication": false,
     "anonymousAuthentication": true,
     "iisExpress": {
-      "applicationUrl": "http://localhost:53732",
-      "sslPort": 44331
+      "applicationUrl": "http://localhost:53024",
+      "sslPort": 44394
     }
   },
   "profiles": {
@@ -17,7 +17,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "GloboTicket.ShoppingCart": {
+    "GloboTicket.Services.TicketCatalog": {
       "commandName": "Project",
       "launchBrowser": true,
       "launchUrl": "weatherforecast",

@@ -6,6 +6,7 @@
 
   <ItemGroup>
     <Folder Include="Controllers\" />
+    <Folder Include="Domain\" />
   </ItemGroup>
 
 
