@@ -21,7 +21,7 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
 
         [HttpGet("{basketLineId}")]
         public ActionResult<BasketLine> Get(Guid basketId, 
-            [FromQuery] Guid basketLineId)
+            Guid basketLineId)
         {
             return new BasketLine();
         }
