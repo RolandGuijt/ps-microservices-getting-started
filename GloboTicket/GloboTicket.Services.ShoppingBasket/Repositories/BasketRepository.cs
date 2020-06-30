@@ -23,14 +23,20 @@ namespace GloboTicket.Services.ShoppingBasket.Repositories
                 .Where(b => b.BasketId == basketId).FirstOrDefaultAsync();
         }
 
+        public async Task<bool> BasketExists(Guid basketId)
+        {
+            return await _shoppingBasketDbContext.Baskets
+                .AnyAsync(b => b.BasketId == basketId);
+        }
+
         public void AddBasket(Basket basket)
         {
             _shoppingBasketDbContext.Baskets.Add(basket);
         }
 
-        public async void SaveChanges()
+        public async Task<bool> SaveChanges()
         {
-            await _shoppingBasketDbContext.SaveChangesAsync();
+            return (await _shoppingBasketDbContext.SaveChangesAsync() > 0);
         }
     }
 }

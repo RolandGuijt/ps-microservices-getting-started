@@ -17,6 +17,6 @@ namespace GloboTicket.Services.ShoppingBasket.Repositories
 
         void RemoveBasketLine(BasketLine basketLine);
 
-        void SaveChanges();
+        Task<bool> SaveChanges();
     }
 }

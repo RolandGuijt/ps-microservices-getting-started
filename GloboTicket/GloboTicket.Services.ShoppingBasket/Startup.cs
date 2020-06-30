@@ -2,6 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 using GloboTicket.Services.ShoppingBasket.DbContexts;
 using GloboTicket.Services.ShoppingBasket.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -28,11 +29,10 @@ namespace GloboTicket.Services.ShoppingBasket
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
-        {
-            // add MVC instead of controllers (=> Swashbuckle) 
+        {            
             services.AddControllers();
 
-            //services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IBasketRepository, BasketRepository>();
 

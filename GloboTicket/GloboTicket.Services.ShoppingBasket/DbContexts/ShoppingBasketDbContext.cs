@@ -37,7 +37,7 @@ namespace GloboTicket.Services.ShoppingBasket.DbContexts
                },
                new BasketLine()
                {
-                   BasketLineId = Guid.Parse("75918bea-7a04-406e-bafd-51dc8b98816f"),
+                   BasketLineId = Guid.Parse("bec71e6b-6b3d-444e-85d7-77bdb3988908"),
                    BasketId = Guid.Parse("d28888e9-2ba9-473a-a40f-e38cb54f9b35"),
                    EventId = Guid.Parse("39144996-8bad-4cb8-9029-125d88808377"),
                    TicketAmount = 2

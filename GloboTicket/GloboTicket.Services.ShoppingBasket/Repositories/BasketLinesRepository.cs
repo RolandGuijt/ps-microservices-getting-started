@@ -44,9 +44,9 @@ namespace GloboTicket.Services.ShoppingBasket.Repositories
             _shoppingBasketDbContext.BasketLines.Remove(basketLine);
         }
 
-        public async void SaveChanges()
+        public async Task<bool> SaveChanges()
         {
-            await _shoppingBasketDbContext.SaveChangesAsync();
+            return (await _shoppingBasketDbContext.SaveChangesAsync() > 0);
         }
     }
 }
