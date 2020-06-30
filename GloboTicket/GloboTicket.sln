@@ -13,7 +13,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateway", "Gateway", "{949D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket.Services.ShoppingBasket", "GloboTicket.Services.ShoppingBasket\GloboTicket.Services.ShoppingBasket.csproj", "{CD16338F-F1A0-44F7-834E-7813F3EF63FE}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket.Services.TicketCatalog", "GloboTicket.Services.TicketCatalog\GloboTicket.Services.TicketCatalog.csproj", "{9BA9BCA2-A018-4174-BA05-C11C0C16E65F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GloboTicket.Services.EventCatalog", "GloboTicket.Services.TicketCatalog\GloboTicket.Services.EventCatalog.csproj", "{9BA9BCA2-A018-4174-BA05-C11C0C16E65F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
