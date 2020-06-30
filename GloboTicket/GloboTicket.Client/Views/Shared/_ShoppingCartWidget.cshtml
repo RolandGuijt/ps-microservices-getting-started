@@ -1,0 +1,12 @@
+﻿@model int
+<div class="row">
+    <div class="col-md-6">
+        <a asp-controller="ShoppingBasket" asp-action="Index">
+            <img class="shoppingCartIcon" src="~/img/shopping-cart_Orange.png" />
+        </a>
+    </div>
+    <div class="col-md-6">
+        @Model items
+    </div>
+
+</div>

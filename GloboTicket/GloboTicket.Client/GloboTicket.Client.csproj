@@ -4,4 +4,35 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\img\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" Namespace="GloboTicket.ShoppingBasketService">
+      <SourceUri>https://localhost:44306/swagger/v1/swagger.json</SourceUri>
+      <ClassName>ShoppingBasketClient</ClassName>
+      <OutputPath>ShoppingBasketClient.cs</OutputPath>
+      <Options>/GenerateClientInterfaces:true</Options>
+    </OpenApiReference>
+    <OpenApiReference Include="OpenAPIs\swagger1.json" CodeGenerator="NSwagCSharp" Namespace="GloboTicket.EventCatalogService">
+      <SourceUri>https://localhost:44394/swagger/v1/swagger.json</SourceUri>
+      <ClassName>EventCatalogClient</ClassName>
+      <OutputPath>EventCatalogClient.cs</OutputPath>
+      <Options>/GenerateClientInterfaces:true</Options>
+    </OpenApiReference>
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.ApiDescription.Client" Version="3.0.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="NSwag.ApiDescription.Client" Version="13.0.5">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+  </ItemGroup>
+
 </Project>
