@@ -1,11 +1,9 @@
 ﻿using System;
-using System.ComponentModel.DataAnnotations;
 
-namespace GloboTicket.Services.EventCatalog.Entities
+namespace GloboTicket.Services.EventCatalog.Models
 {
-    public class Event
+    public class EventDto
     {
-        [Required]
         public Guid EventId { get; set; }
         public string Name { get; set; }
         public int Price { get; set; }
@@ -14,7 +12,6 @@ namespace GloboTicket.Services.EventCatalog.Entities
         public string Description { get; set; }
         public string ImageUrl { get; set; }
         public Guid CategoryId { get; set; }
-        public Category Category { get; set; }
-
+        public string CategoryName { get; set; }
     }
 }

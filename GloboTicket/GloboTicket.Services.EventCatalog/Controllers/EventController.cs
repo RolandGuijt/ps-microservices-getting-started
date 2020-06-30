@@ -1,4 +1,4 @@
-﻿using GloboTicket.Services.EventCatalog.Entities;
+﻿using AutoMapper;
 using GloboTicket.Services.EventCatalog.Repositories;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -13,22 +13,26 @@ namespace GloboTicket.Services.EventCatalog.Controllers
     {
 
         private readonly IEventRepository _eventRepository;
+        private readonly IMapper _mapper;
 
-        public EventController(IEventRepository eventRepository)
+        public EventController(IEventRepository eventRepository, IMapper mapper)
         {
             _eventRepository = eventRepository;
+            _mapper = mapper;
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Event>>> Get(Guid categoryId)
+        public async Task<ActionResult<IEnumerable<Models.EventDto>>> Get(Guid categoryId)
         {
-            return Ok( await _eventRepository.GetEvents(categoryId));
+            var result = await _eventRepository.GetEvents(categoryId);
+            return Ok(_mapper.Map<List<Models.EventDto>>(result));
         }
 
         [HttpGet("{eventId}")]
-        public async Task<ActionResult<Event>> GetById(Guid eventId)
+        public async Task<ActionResult<Models.EventDto>> GetById(Guid eventId)
         {
-            return Ok(await _eventRepository.GetEventById(eventId));
+            var result = await _eventRepository.GetEventById(eventId);
+            return Ok(_mapper.Map<Models.EventDto>(result));
         }
     }
 }

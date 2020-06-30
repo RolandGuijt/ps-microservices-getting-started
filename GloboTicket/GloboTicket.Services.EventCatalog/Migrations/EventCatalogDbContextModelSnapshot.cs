@@ -33,7 +33,7 @@ namespace GloboTicket.Services.EventCatalog.Migrations
                     b.ToTable("Categories");
                 });
 
-            modelBuilder.Entity("GloboTicket.Services.EventCatalog.Entities.Event", b =>
+            modelBuilder.Entity("GloboTicket.Services.EventCatalog.Entities.EventDto", b =>
                 {
                     b.Property<Guid>("EventId")
                         .ValueGeneratedOnAdd()
@@ -67,7 +67,7 @@ namespace GloboTicket.Services.EventCatalog.Migrations
                     b.ToTable("Events");
                 });
 
-            modelBuilder.Entity("GloboTicket.Services.EventCatalog.Entities.Event", b =>
+            modelBuilder.Entity("GloboTicket.Services.EventCatalog.Entities.EventDto", b =>
                 {
                     b.HasOne("GloboTicket.Services.EventCatalog.Entities.Category", "Category")
                         .WithMany("Events")
