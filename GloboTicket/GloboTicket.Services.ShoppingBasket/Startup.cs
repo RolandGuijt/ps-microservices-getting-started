@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.OpenApi.Models;
 
 namespace GloboTicket.Services.ShoppingBasket
 {
@@ -25,7 +26,13 @@ namespace GloboTicket.Services.ShoppingBasket
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllers();
+            // add MVC instead of controllers (=> Swashbuckle) 
+            services.AddControllers(); 
+
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Shopping Basket API", Version = "v1" });
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -38,8 +45,16 @@ namespace GloboTicket.Services.ShoppingBasket
 
             app.UseHttpsRedirection();
 
-            app.UseRouting();
+            app.UseSwagger();
 
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Shopping Basket API V1");
+
+            });
+
+            app.UseRouting();
+          
             app.UseAuthorization();
 
             app.UseEndpoints(endpoints =>
