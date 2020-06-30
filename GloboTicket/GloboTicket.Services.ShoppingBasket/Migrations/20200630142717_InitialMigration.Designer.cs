@@ -10,7 +10,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace GloboTicket.Services.ShoppingBasket.Migrations
 {
     [DbContext(typeof(ShoppingBasketDbContext))]
-    [Migration("20200630140108_InitialMigration")]
+    [Migration("20200630142717_InitialMigration")]
     partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -59,6 +59,8 @@ namespace GloboTicket.Services.ShoppingBasket.Migrations
 
                     b.HasKey("BasketLineId");
 
+                    b.HasIndex("BasketId");
+
                     b.ToTable("BasketLines");
 
                     b.HasData(
@@ -76,6 +78,15 @@ namespace GloboTicket.Services.ShoppingBasket.Migrations
                             EventId = new Guid("39144996-8bad-4cb8-9029-125d88808377"),
                             TicketAmount = 2
                         });
+                });
+
+            modelBuilder.Entity("GloboTicket.Services.ShoppingBasket.Entities.BasketLine", b =>
+                {
+                    b.HasOne("GloboTicket.Services.ShoppingBasket.Entities.Basket", "Basket")
+                        .WithMany("BasketLines")
+                        .HasForeignKey("BasketId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
                 });
 #pragma warning restore 612, 618
         }

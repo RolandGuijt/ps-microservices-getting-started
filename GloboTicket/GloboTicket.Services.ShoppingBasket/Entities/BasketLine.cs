@@ -18,5 +18,7 @@ namespace GloboTicket.Services.ShoppingBasket.Entities
 
         [Required]
         public int TicketAmount { get; set; }
+
+        public Basket Basket { get; set; }
     }
 }

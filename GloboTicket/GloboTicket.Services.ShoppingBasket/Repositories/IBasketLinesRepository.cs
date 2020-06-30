@@ -11,7 +11,7 @@ namespace GloboTicket.Services.ShoppingBasket.Repositories
 
         Task<BasketLine> GetBasketLineById(Guid basketLineId);
 
-        void AddBasketLine(BasketLine basketLine);
+        void AddBasketLine(Guid basketId, BasketLine basketLine);
 
         void UpdateBasketLine(BasketLine basketLine);
 

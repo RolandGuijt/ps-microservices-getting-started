@@ -29,8 +29,9 @@ namespace GloboTicket.Services.ShoppingBasket.Repositories
                 .Where(b => b.BasketLineId == basketLineId).FirstOrDefaultAsync();
         }
 
-        public void AddBasketLine(BasketLine basketLine)
+        public void AddBasketLine(Guid basketId, BasketLine basketLine)
         {
+            basketLine.BasketId = basketId;
             _shoppingBasketDbContext.BasketLines.Add(basketLine);
         }
 
