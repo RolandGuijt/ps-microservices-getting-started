@@ -1,3 +1,5 @@
+using System;
+using AutoMapper;
 using GloboTicket.Services.EventCatalog.DbContexts;
 using GloboTicket.Services.EventCatalog.Repositories;
 using Microsoft.AspNetCore.Builder;
@@ -19,7 +21,6 @@ namespace GloboTicket.Services.EventCatalog
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<EventCatalogDbContext>(options =>
@@ -28,15 +29,15 @@ namespace GloboTicket.Services.EventCatalog
             services.AddScoped<ICategoryRepository, CategoryRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddControllers();
             services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Event Catalog API", Version = "v1" });
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "EventDto Catalog API", Version = "v1" });
             });
-
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())
@@ -50,7 +51,7 @@ namespace GloboTicket.Services.EventCatalog
 
             app.UseSwaggerUI(c =>
             {
-                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Event Catalog API V1");
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "EventDto Catalog API V1");
 
             });
 

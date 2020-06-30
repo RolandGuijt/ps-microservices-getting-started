@@ -1,10 +1,10 @@
-﻿using System;
+﻿using GloboTicket.Services.EventCatalog.DbContexts;
+using GloboTicket.Services.EventCatalog.Entities;
+using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GloboTicket.Services.EventCatalog.DbContexts;
-using GloboTicket.Services.EventCatalog.Entities;
-using Microsoft.EntityFrameworkCore;
 
 namespace GloboTicket.Services.EventCatalog.Repositories
 {
@@ -21,13 +21,13 @@ namespace GloboTicket.Services.EventCatalog.Repositories
         public async Task<IEnumerable<Event>> GetEvents(Guid categoryId)
         {
             if(categoryId == Guid.Empty)
-                  return await _eventCatalogDbContext.Events.ToListAsync();
-            return await _eventCatalogDbContext.Events.Where(x => x.CategoryId == categoryId).ToListAsync();
+                  return await _eventCatalogDbContext.Events.Include(x => x.Category).ToListAsync();
+            return await _eventCatalogDbContext.Events.Include(x => x.Category).Where(x => x.CategoryId == categoryId).ToListAsync();
         }
 
         public async Task<Event> GetEventById(Guid eventId)
         {
-            return await _eventCatalogDbContext.Events.Where(x => x.EventId == eventId).FirstOrDefaultAsync();
+            return await _eventCatalogDbContext.Events.Include(x => x.Category).Where(x => x.EventId == eventId).FirstOrDefaultAsync();
         }
     }
 }
