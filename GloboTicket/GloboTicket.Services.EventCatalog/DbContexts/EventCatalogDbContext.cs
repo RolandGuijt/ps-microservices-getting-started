@@ -1,11 +1,16 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using GloboTicket.Services.EventCatalog.Entities;
+using Microsoft.EntityFrameworkCore;
 
 namespace GloboTicket.Services.EventCatalog.DbContexts
 {
-    public class EventCatalogDbContext
+    public class EventCatalogDbContext : DbContext
     {
+        public EventCatalogDbContext(DbContextOptions<EventCatalogDbContext> options) : base(options)
+        {
+
+        }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Event> Events { get; set; }
     }
+
 }
