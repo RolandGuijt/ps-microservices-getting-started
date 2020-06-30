@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Microsoft.OpenApi.Models;
 
 namespace GloboTicket.Services.EventCatalog
 {
@@ -21,8 +22,6 @@ namespace GloboTicket.Services.EventCatalog
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
-
             services.AddDbContext<EventCatalogDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -30,7 +29,10 @@ namespace GloboTicket.Services.EventCatalog
             services.AddTransient<IEventRepository, EventRepository>();
 
             services.AddControllers();
-
+            services.AddSwaggerGen(c =>
+            {
+                c.SwaggerDoc("v1", new OpenApiInfo { Title = "Event Catalog API", Version = "v1" });
+            });
 
         }
 
@@ -43,6 +45,14 @@ namespace GloboTicket.Services.EventCatalog
             }
 
             app.UseHttpsRedirection();
+
+            app.UseSwagger();
+
+            app.UseSwaggerUI(c =>
+            {
+                c.SwaggerEndpoint("/swagger/v1/swagger.json", "Event Catalog API V1");
+
+            });
 
             app.UseRouting();
 
