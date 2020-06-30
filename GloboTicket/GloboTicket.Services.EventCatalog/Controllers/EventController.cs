@@ -20,21 +20,15 @@ namespace GloboTicket.Services.EventCatalog.Controllers
         }
 
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Event>>> Get()
+        public async Task<ActionResult<IEnumerable<Event>>> Get(Guid categoryId)
         {
-            return Ok( await _eventRepository.GetAllEvents());
+            return Ok( await _eventRepository.GetEvents(categoryId));
         }
 
         [HttpGet("{eventId}")]
-        public async Task<ActionResult<Event>> Get(Guid eventId)
+        public async Task<ActionResult<Event>> GetById(Guid eventId)
         {
             return Ok(await _eventRepository.GetEventById(eventId));
-        }
-
-        [HttpGet("?categoryid={categoryId}")]
-        public async Task<ActionResult<Event>> GetByCategoryId(Guid categoryId)
-        {
-            return Ok(await _eventRepository.GetEventsForCategory(categoryId));
         }
     }
 }
