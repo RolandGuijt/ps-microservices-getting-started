@@ -25,8 +25,8 @@ namespace GloboTicket.Services.EventCatalog
             services.AddDbContext<EventCatalogDbContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddTransient<ICategoryRepository, CategoryRepository>();
-            services.AddTransient<IEventRepository, EventRepository>();
+            services.AddScoped<ICategoryRepository, CategoryRepository>();
+            services.AddScoped<IEventRepository, EventRepository>();
 
             services.AddControllers();
             services.AddSwaggerGen(c =>
