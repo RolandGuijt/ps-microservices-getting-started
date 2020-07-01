@@ -28,28 +28,25 @@ namespace GloboTicket.Client
             services.AddScoped<IEventCatalogRepository, EventCatalogRepository>();
             services.AddScoped<IShoppingBasketRepository, ShoppingBasketRepository>();
 
-            services.AddHttpClient("ShoppingBasketClient",
-                ctx => ctx.BaseAddress = new Uri("https://localhost:44306/api")
-            );
-
-            services.AddHttpClient("EventCatalogClient",
-                ctx => ctx.BaseAddress = new Uri("https://localhost:44394/api")
-            );
+            services.AddHttpClient("ShoppingBasketClient");
+            services.AddHttpClient("EventCatalogClient");
 
             services.AddScoped<IShoppingBasketClient>(ctx =>
             {
                 var clientFactory = ctx.GetRequiredService<IHttpClientFactory>();
                 var httpClient = clientFactory.CreateClient("ShoppingBasketClient");
 
-                return new ShoppingBasketClient("https://localhost:44306/api", httpClient);
+                return new ShoppingBasketClient(Configuration["ServiceConfigs:ShoppingBasket:url"], 
+                    httpClient);
             });
 
             services.AddScoped<IEventCatalogClient>(ctx =>
             {
                 var clientFactory = ctx.GetRequiredService<IHttpClientFactory>();
-                var httpClient = clientFactory.CreateClient("ShoppingBasketClient");
+                var httpClient = clientFactory.CreateClient("EventCatalogClient");
 
-                return new EventCatalogClient("https://localhost:44394/api", httpClient);
+                return new EventCatalogClient(Configuration["ServiceConfigs:EventCatalog:url"], 
+                    httpClient);
             });
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

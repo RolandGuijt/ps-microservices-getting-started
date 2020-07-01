@@ -9,14 +9,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <OpenApiReference Include="OpenAPIs\swagger.json" CodeGenerator="NSwagCSharp" Namespace="GloboTicket.ShoppingBasketService">
-      <SourceUri>https://localhost:44306/swagger/v1/swagger.json</SourceUri>
+    <OpenApiReference Include="OpenAPIs\ShoppingBasketSwagger.json" CodeGenerator="NSwagCSharp" Namespace="GloboTicket.ShoppingBasketService">
+      <SourceUri>https://localhost:44306/swagger/v1/ShoppingBasketSwagger.json</SourceUri>
       <ClassName>ShoppingBasketClient</ClassName>
       <OutputPath>ShoppingBasketClient.cs</OutputPath>
       <Options>/GenerateClientInterfaces:true</Options>
     </OpenApiReference>
-    <OpenApiReference Include="OpenAPIs\swagger1.json" CodeGenerator="NSwagCSharp" Namespace="GloboTicket.EventCatalogService">
-      <SourceUri>https://localhost:44394/swagger/v1/swagger.json</SourceUri>
+    <OpenApiReference Include="OpenAPIs\EventCatalogSwagger.json" CodeGenerator="NSwagCSharp" Namespace="GloboTicket.EventCatalogService">
+      <SourceUri>https://localhost:44394/swagger/v1/EventCatalogSwagger.json</SourceUri>
       <ClassName>EventCatalogClient</ClassName>
       <OutputPath>EventCatalogClient.cs</OutputPath>
       <Options>/GenerateClientInterfaces:true</Options>
