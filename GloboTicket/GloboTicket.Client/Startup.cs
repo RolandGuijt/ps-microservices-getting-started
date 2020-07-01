@@ -1,6 +1,5 @@
 using System;
 using System.Net.Http;
-using GloboTicket.Client.Repositories;
 using GloboTicket.EventCatalogService;
 using GloboTicket.ShoppingBasketService;
 using Microsoft.AspNetCore.Builder;
@@ -24,9 +23,6 @@ namespace GloboTicket.Client
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-
-            services.AddScoped<IEventCatalogRepository, EventCatalogRepository>();
-            services.AddScoped<IShoppingBasketRepository, ShoppingBasketRepository>();
 
             services.AddHttpClient("ShoppingBasketClient");
             services.AddHttpClient("EventCatalogClient");

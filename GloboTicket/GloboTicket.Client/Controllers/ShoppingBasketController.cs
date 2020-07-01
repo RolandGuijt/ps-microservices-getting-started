@@ -1,21 +1,26 @@
-﻿using System.Threading.Tasks;
-using GloboTicket.Client.Repositories;
+﻿using System;
+using System.Threading.Tasks;
+using GloboTicket.ShoppingBasketService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GloboTicket.Client.Controllers
 {
-    public class ShoppingBasketController: Controller
+    public class ShoppingBasketController : Controller
     {
-        private readonly IShoppingBasketRepository shoppingBasketRepository;
+        private readonly IShoppingBasketClient client;
 
-        public ShoppingBasketController(IShoppingBasketRepository shoppingBasketRepository)
+        public ShoppingBasketController(IShoppingBasketClient client)
         {
-            this.shoppingBasketRepository = shoppingBasketRepository;
+            this.client = client;
         }
 
         public Task<IActionResult> Index()
         {
             return null;
         }
+
+        //public async Task<IActionResult> AddToCart(Guid eventId)
+        //{
+        //}
     }
 }

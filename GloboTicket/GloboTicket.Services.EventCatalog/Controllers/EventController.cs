@@ -21,14 +21,21 @@ namespace GloboTicket.Services.EventCatalog.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetAllEvents")]
+        public async Task<ActionResult<IEnumerable<Models.EventDto>>> Get()
+        {
+            var result = await _eventRepository.GetEvents(Guid.Empty);
+            return Ok(_mapper.Map<List<Models.EventDto>>(result));
+        }
+
+        [HttpGet("{categoryId}", Name = "GetEventsByCategory")]
         public async Task<ActionResult<IEnumerable<Models.EventDto>>> Get(Guid categoryId)
         {
             var result = await _eventRepository.GetEvents(categoryId);
             return Ok(_mapper.Map<List<Models.EventDto>>(result));
         }
 
-        [HttpGet("{eventId}")]
+        [HttpGet("{eventId}", Name = "GetEventByEventId")]
         public async Task<ActionResult<Models.EventDto>> GetById(Guid eventId)
         {
             var result = await _eventRepository.GetEventById(eventId);

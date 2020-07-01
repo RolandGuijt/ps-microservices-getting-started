@@ -1,21 +1,21 @@
 ﻿using System.Threading.Tasks;
-using GloboTicket.Client.Repositories;
+using GloboTicket.EventCatalogService;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GloboTicket.Client.Controllers
 {
     public class EventCatalogController : Controller
     {
-        private readonly IEventCatalogRepository eventCatalogRepository;
+        private readonly IEventCatalogClient client;
 
-        public EventCatalogController(IEventCatalogRepository eventCatalogRepository)
+        public EventCatalogController(IEventCatalogClient client)
         {
-            this.eventCatalogRepository = eventCatalogRepository;
+            this.client = client;
         }
 
         public async Task<IActionResult> Index()
         {
-            var events = await eventCatalogRepository.GetAll();
+            var events = await client.GetAllEventsAsync();
             return View(events);
         }
     }

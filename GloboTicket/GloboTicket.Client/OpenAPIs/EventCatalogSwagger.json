@@ -1,7 +1,7 @@
 {
   "openapi": "3.0.1",
   "info": {
-    "title": "Event Catalog API",
+    "title": "EventDto Catalog API",
     "version": "v1"
   },
   "paths": {
@@ -10,10 +10,51 @@
         "tags": [
           "Event"
         ],
+        "operationId": "GetAllEvents",
+        "responses": {
+          "200": {
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EventDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/events/{categoryId}": {
+      "get": {
+        "tags": [
+          "Event"
+        ],
+        "operationId": "GetEventsByCategory",
         "parameters": [
           {
             "name": "categoryId",
-            "in": "query",
+            "in": "path",
+            "required": true,
             "schema": {
               "type": "string",
               "format": "uuid"
@@ -28,7 +69,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Event"
+                    "$ref": "#/components/schemas/EventDto"
                   }
                 }
               },
@@ -36,7 +77,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Event"
+                    "$ref": "#/components/schemas/EventDto"
                   }
                 }
               },
@@ -44,7 +85,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/Event"
+                    "$ref": "#/components/schemas/EventDto"
                   }
                 }
               }
@@ -58,6 +99,7 @@
         "tags": [
           "Event"
         ],
+        "operationId": "GetEventByEventId",
         "parameters": [
           {
             "name": "eventId",
@@ -75,17 +117,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/Event"
+                  "$ref": "#/components/schemas/EventDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Event"
+                  "$ref": "#/components/schemas/EventDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/Event"
+                  "$ref": "#/components/schemas/EventDto"
                 }
               }
             }
@@ -96,28 +138,7 @@
   },
   "components": {
     "schemas": {
-      "Category": {
-        "type": "object",
-        "properties": {
-          "categoryId": {
-            "type": "string",
-            "format": "uuid"
-          },
-          "name": {
-            "type": "string",
-            "nullable": true
-          },
-          "events": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/Event"
-            },
-            "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "Event": {
+      "EventDto": {
         "type": "object",
         "properties": {
           "eventId": {
@@ -152,8 +173,9 @@
             "type": "string",
             "format": "uuid"
           },
-          "category": {
-            "$ref": "#/components/schemas/Category"
+          "categoryName": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false

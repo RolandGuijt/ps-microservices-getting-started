@@ -35,7 +35,7 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
             return Ok(_mapper.Map<Basket>(basket)); 
         }
          
-        [HttpPost]
+        [HttpPost(Name = "NewBasket")]
         public async Task<ActionResult<Basket>> Post(BasketForCreation basketForCreation)
         {
             var basketEntity = _mapper.Map<Entities.Basket>(basketForCreation);

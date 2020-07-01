@@ -1,6 +1,43 @@
-﻿@model IEnumerable<GloboTicket.EventCatalogService.Event>
+﻿@model IEnumerable<GloboTicket.EventCatalogService.EventDto>
 
-@foreach (var ev in Model)
-{
-    @ev.Artist
-}
+<table class="table">
+    <thead>
+        <tr>
+            <th></th>
+            <th>Date</th>
+            <th>Name</th>
+            <th>Artist</th>
+            <th>Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var ev in Model)
+        {
+        <tr>
+            <td>
+                <img class="artistPic" src="@ev.ImageUrl" alt="Artist pic" />
+            </td>
+            <td>
+                @ev.Date
+            </td>
+            <td>
+                @ev.Name
+            </td>
+            <td>
+                @ev.Artist
+            </td>
+            <td>
+                $@ev.Price
+            </td>
+            <td>
+                <a asp-controller="ShoppingBasket" asp-action="AddToCart" asp-route-eventId="@ev.EventId">Buy ticket</a>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="5">
+                @ev.Description
+            </td>
+        </tr>
+        }
+    </tbody>
+</table>

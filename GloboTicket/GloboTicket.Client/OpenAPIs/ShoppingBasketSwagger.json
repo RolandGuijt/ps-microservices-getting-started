@@ -10,6 +10,7 @@
         "tags": [
           "BasketLines"
         ],
+        "operationId": "GetLinesForBasket",
         "parameters": [
           {
             "name": "basketId",
@@ -57,6 +58,7 @@
         "tags": [
           "BasketLines"
         ],
+        "operationId": "NewBasketLine",
         "parameters": [
           {
             "name": "basketId",
@@ -89,7 +91,24 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketLine"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketLine"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketLine"
+                }
+              }
+            }
           }
         }
       }
@@ -99,6 +118,7 @@
         "tags": [
           "BasketLines"
         ],
+        "operationId": "GetBasketLine",
         "parameters": [
           {
             "name": "basketId",
@@ -111,18 +131,11 @@
           },
           {
             "name": "basketLineId",
-            "in": "query",
-            "schema": {
-              "type": "string",
-              "format": "uuid"
-            }
-          },
-          {
-            "name": "basketLineId",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "string",
+              "format": "uuid"
             }
           }
         ],
@@ -153,6 +166,7 @@
         "tags": [
           "BasketLines"
         ],
+        "operationId": "UpdateBasketLine",
         "parameters": [
           {
             "name": "basketId",
@@ -194,7 +208,24 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketLine"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketLine"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BasketLine"
+                }
+              }
+            }
           }
         }
       },
@@ -202,6 +233,7 @@
         "tags": [
           "BasketLines"
         ],
+        "operationId": "DeleteBasketLine",
         "parameters": [
           {
             "name": "basketId",
@@ -234,6 +266,7 @@
         "tags": [
           "Baskets"
         ],
+        "operationId": "GetBasket",
         "parameters": [
           {
             "name": "basketId",
@@ -274,6 +307,7 @@
         "tags": [
           "Baskets"
         ],
+        "operationId": "NewBasket",
         "requestBody": {
           "content": {
             "application/json": {
@@ -295,7 +329,24 @@
         },
         "responses": {
           "200": {
-            "description": "Success"
+            "description": "Success",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/Basket"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Basket"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Basket"
+                }
+              }
+            }
           }
         }
       }
@@ -307,6 +358,10 @@
         "type": "object",
         "properties": {
           "basketLineId": {
+            "type": "string",
+            "format": "uuid"
+          },
+          "basketId": {
             "type": "string",
             "format": "uuid"
           },
@@ -322,6 +377,10 @@
         "additionalProperties": false
       },
       "BasketLineForCreation": {
+        "required": [
+          "eventId",
+          "ticketAmount"
+        ],
         "type": "object",
         "properties": {
           "eventId": {
@@ -336,6 +395,9 @@
         "additionalProperties": false
       },
       "BasketLineForUpdate": {
+        "required": [
+          "ticketAmount"
+        ],
         "type": "object",
         "properties": {
           "ticketAmount": {
@@ -360,6 +422,9 @@
         "additionalProperties": false
       },
       "BasketForCreation": {
+        "required": [
+          "userId"
+        ],
         "type": "object",
         "properties": {
           "userId": {

@@ -26,7 +26,7 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
             _mapper = mapper;
         }
 
-        [HttpGet]
+        [HttpGet(Name = "GetLinesForBasket")]
         public async Task<ActionResult<IEnumerable<BasketLine>>> Get(Guid basketId)
         {
             if (!await _basketRepository.BasketExists(basketId))
@@ -56,7 +56,7 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
             return Ok(_mapper.Map<BasketLine>(basketLine));
         }
 
-        [HttpPost]
+        [HttpPost(Name = "NewBasketLine")]
         public async Task<ActionResult<BasketLine>> Post(Guid basketId, 
             [FromBody] BasketLineForCreation basketLineForCreation)
         {
@@ -78,7 +78,7 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
                 basketLineToReturn);
         } 
 
-        [HttpPut("{basketLineId}")]
+        [HttpPut("{basketLineId}", Name="UpdateBasketLine")]
         public async Task<ActionResult<BasketLine>> Put(Guid basketId, 
             Guid basketLineId, 
             [FromBody] BasketLineForUpdate basketLineForUpdate)
@@ -106,7 +106,7 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
             return Ok(_mapper.Map<BasketLine>(basketLineEntity));
         } 
 
-        [HttpDelete("{basketLineId}")]
+        [HttpDelete("{basketLineId}", Name = "DeleteBasketLine")]
         public async Task<IActionResult> Delete(Guid basketId, 
             Guid basketLineId)
         {
