@@ -1,0 +1,26 @@
+﻿@model GloboTicket.EventCatalogService.EventDto
+<tr>
+    <td>
+        <img class="artistPic" src="@Model.ImageUrl" alt="Artist pic" />
+    </td>
+    <td>
+        @Model.Date
+    </td>
+    <td>
+        @Model.Name
+    </td>
+    <td>
+        @Model.Artist
+    </td>
+    <td>
+        $@Model.Price
+    </td>
+    <td>
+        <a asp-controller="ShoppingBasket" asp-action="AddToBasket" asp-route-eventId="@Model.EventId">Buy ticket</a>
+    </td>
+</tr>
+<tr>
+    <td colspan="5">
+        @Model.Description
+    </td>
+</tr>

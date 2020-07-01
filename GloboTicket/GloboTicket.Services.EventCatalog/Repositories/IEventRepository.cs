@@ -9,5 +9,6 @@ namespace GloboTicket.Services.EventCatalog.Repositories
     {
         Task<IEnumerable<Event>> GetEvents(Guid categoryId);
         Task<Event> GetEventById(Guid eventId);
+        Task<IEnumerable<Event>> GetEventsByIds(Guid[] eventIds);
     }
 }

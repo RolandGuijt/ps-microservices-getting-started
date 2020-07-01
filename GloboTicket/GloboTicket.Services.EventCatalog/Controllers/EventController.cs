@@ -1,9 +1,9 @@
-﻿using AutoMapper;
-using GloboTicket.Services.EventCatalog.Repositories;
-using Microsoft.AspNetCore.Mvc;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using AutoMapper;
+using GloboTicket.Services.EventCatalog.Repositories;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GloboTicket.Services.EventCatalog.Controllers
 {
@@ -40,6 +40,13 @@ namespace GloboTicket.Services.EventCatalog.Controllers
         {
             var result = await _eventRepository.GetEventById(eventId);
             return Ok(_mapper.Map<Models.EventDto>(result));
+        }
+
+        [HttpGet("{eventIds}", Name = "GetEventsByEventIds")]
+        public async Task<ActionResult<Models.EventDto>> GetByIds(Guid[] eventIds)
+        {
+            var result = await _eventRepository.GetEventsByIds(eventIds);
+            return Ok(_mapper.Map<List<Models.EventDto>>(result));
         }
     }
 }
