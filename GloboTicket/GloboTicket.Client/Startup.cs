@@ -1,6 +1,7 @@
 using System;
 using System.Net.Http;
 using GloboTicket.Client.Clients;
+using GloboTicket.Client.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -27,6 +28,8 @@ namespace GloboTicket.Client
                 c.BaseAddress = new Uri(Configuration["ApiConfigs:EventCatalog:Uri"]));
             services.AddHttpClient<IShoppingBasketClient, ShoppingBasketClient>(c => 
                 c.BaseAddress = new Uri(Configuration["ApiConfigs:ShoppingBasket:Uri"]));
+
+            services.AddSingleton<Settings>();
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

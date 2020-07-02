@@ -10,7 +10,7 @@ namespace GloboTicket.Client.Extensions
 {
     public static class HttpClientExtensions
     {
-        public static Task<HttpResponseMessage> PostAsJsonAsync<T>(this HttpClient httpClient, string url, T data)
+        public static Task<HttpResponseMessage> PostAsJson<T>(this HttpClient httpClient, string url, T data)
         {
             var dataAsString = JsonSerializer.Serialize(data);
             var content = new StringContent(dataAsString);
@@ -23,7 +23,7 @@ namespace GloboTicket.Client.Extensions
         public static async Task<T> ReadContentAs<T>(this HttpResponseMessage response)
         {
             if (!response.IsSuccessStatusCode)
-                throw new ApplicationException("Something went wrong calling the API");
+                throw new ApplicationException($"Something went wrong calling the API: {response.ReasonPhrase}");
 
             var dataAsString = await response.Content.ReadAsStringAsync().ConfigureAwait(false);
 

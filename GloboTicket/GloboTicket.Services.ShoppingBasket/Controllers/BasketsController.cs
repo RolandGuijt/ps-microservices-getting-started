@@ -1,12 +1,11 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using GloboTicket.Services.ShoppingBasket.Models;
 using GloboTicket.Services.ShoppingBasket.Repositories;
 using Microsoft.AspNetCore.Mvc;
- 
+
 
 namespace GloboTicket.Services.ShoppingBasket.Controllers
 {
@@ -32,14 +31,16 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
                 return NotFound();
             }
 
-            return Ok(_mapper.Map<Basket>(basket)); 
+            var result = _mapper.Map<Basket>(basket);
+            result.NumberOfLines = basket.BasketLines.Count();
+            return Ok(result);
         }
-         
-        [HttpPost(Name = "NewBasket")]
+
+        [HttpPost]
         public async Task<ActionResult<Basket>> Post(BasketForCreation basketForCreation)
         {
             var basketEntity = _mapper.Map<Entities.Basket>(basketForCreation);
-           
+
             _basketRepository.AddBasket(basketEntity);
             await _basketRepository.SaveChanges();
 
@@ -49,6 +50,6 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
                 "GetBasket",
                 new { basketId = basketEntity.BasketId },
                 basketToReturn);
-        }         
+        }
     }
 }
