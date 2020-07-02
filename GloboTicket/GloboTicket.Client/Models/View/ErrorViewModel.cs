@@ -1,6 +1,6 @@
 using System;
 
-namespace GloboTicket.Client.Models
+namespace GloboTicket.Client.Models.View
 {
     public class ErrorViewModel
     {

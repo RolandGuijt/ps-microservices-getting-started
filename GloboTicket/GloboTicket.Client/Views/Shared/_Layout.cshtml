@@ -14,7 +14,7 @@
                 <a class="navbar-brand" asp-controller="EventCatalog" asp-action="Index">GloboTicket</a>
 
                 <div>
-                    <partial name="_ShoppingCartWidget" model="3" />
+                    @RenderSection("Widget", required: false)
                 </div>
             </div>
         </nav>

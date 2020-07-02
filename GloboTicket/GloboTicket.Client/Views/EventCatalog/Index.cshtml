@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GloboTicket.EventCatalogService.EventDto>
+﻿@model IEnumerable<GloboTicket.Client.Models.Api.Event>
 
 <table class="table">
     <thead>
@@ -14,3 +14,7 @@
         @Html.DisplayForModel()
     </tbody>
 </table>
+
+@section Widget {
+    <partial name="_ShoppingCartWidget" model="3" />
+}

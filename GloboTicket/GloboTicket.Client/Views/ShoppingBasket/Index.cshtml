@@ -1,12 +1,15 @@
-﻿@model ICollection<GloboTicket.ShoppingBasketService.BasketLine>
+﻿@model IEnumerable<GloboTicket.Client.Models.View.BasketLineViewModel>
 
 <table class="table">
     <thead>
+        <tr>
+            <th>Event name</th>
+            <th>Date</th>
+            <th>Price</th>
+            <th>Quantity</th>
+        </tr>
     </thead>
     <tbody>
-  
-        <tr>
-            <td></td>
-        </tr>
+        @Html.EditorForModel()
     </tbody>
 </table>

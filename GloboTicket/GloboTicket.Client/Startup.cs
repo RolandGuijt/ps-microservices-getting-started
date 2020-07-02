@@ -1,7 +1,6 @@
 using System;
 using System.Net.Http;
-using GloboTicket.EventCatalogService;
-using GloboTicket.ShoppingBasketService;
+using GloboTicket.Client.Clients;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
@@ -24,26 +23,10 @@ namespace GloboTicket.Client
         {
             services.AddControllersWithViews();
 
-            services.AddHttpClient("ShoppingBasketClient");
-            services.AddHttpClient("EventCatalogClient");
-
-            services.AddScoped<IShoppingBasketClient>(ctx =>
-            {
-                var clientFactory = ctx.GetRequiredService<IHttpClientFactory>();
-                var httpClient = clientFactory.CreateClient("ShoppingBasketClient");
-
-                return new ShoppingBasketClient(Configuration["ServiceConfigs:ShoppingBasket:url"], 
-                    httpClient);
-            });
-
-            services.AddScoped<IEventCatalogClient>(ctx =>
-            {
-                var clientFactory = ctx.GetRequiredService<IHttpClientFactory>();
-                var httpClient = clientFactory.CreateClient("EventCatalogClient");
-
-                return new EventCatalogClient(Configuration["ServiceConfigs:EventCatalog:url"], 
-                    httpClient);
-            });
+            services.AddHttpClient<IEventCatalogClient, EventCatalogClient>(c => 
+                c.BaseAddress = new Uri(Configuration["ApiConfigs:EventCatalog:Uri"]));
+            services.AddHttpClient<IShoppingBasketClient, ShoppingBasketClient>(c => 
+                c.BaseAddress = new Uri(Configuration["ApiConfigs:ShoppingBasket:Uri"]));
         }
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
