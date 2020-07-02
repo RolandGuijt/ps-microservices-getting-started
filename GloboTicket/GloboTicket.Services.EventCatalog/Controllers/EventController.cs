@@ -22,16 +22,11 @@ namespace GloboTicket.Services.EventCatalog.Controllers
         }
 
         [HttpGet(Name = "GetAllEvents")]
-        public async Task<ActionResult<IEnumerable<Models.EventDto>>> Get()
+        public async Task<ActionResult<IEnumerable<Models.EventDto>>> Get(
+            [FromQuery] Guid categoryId,
+            [FromQuery] Guid[] eventIds)
         {
-            var result = await _eventRepository.GetEvents(Guid.Empty);
-            return Ok(_mapper.Map<List<Models.EventDto>>(result));
-        }
-
-        [HttpGet("{categoryId}", Name = "GetEventsByCategory")]
-        public async Task<ActionResult<IEnumerable<Models.EventDto>>> Get(Guid categoryId)
-        {
-            var result = await _eventRepository.GetEvents(categoryId);
+            var result = await _eventRepository.GetEvents(categoryId, eventIds);
             return Ok(_mapper.Map<List<Models.EventDto>>(result));
         }
 
@@ -40,13 +35,6 @@ namespace GloboTicket.Services.EventCatalog.Controllers
         {
             var result = await _eventRepository.GetEventById(eventId);
             return Ok(_mapper.Map<Models.EventDto>(result));
-        }
-
-        [HttpGet("GetEventsByIds/{eventIds}", Name = "GetEventsByEventIds")]
-        public async Task<ActionResult<IEnumerable<Models.EventDto>>> GetByIds([FromQuery]Guid[] eventIds)
-        {
-            var result = await _eventRepository.GetEventsByIds(eventIds);
-            return Ok(_mapper.Map<List<Models.EventDto>>(result));
         }
     }
 }

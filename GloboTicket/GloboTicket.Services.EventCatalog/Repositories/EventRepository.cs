@@ -18,21 +18,20 @@ namespace GloboTicket.Services.EventCatalog.Repositories
         }
 
 
-        public async Task<IEnumerable<Event>> GetEvents(Guid categoryId)
+        public async Task<IEnumerable<Event>> GetEvents(Guid categoryId, Guid[] eventIds)
         {
-            if(categoryId == Guid.Empty)
-                  return await _eventCatalogDbContext.Events.Include(x => x.Category).ToListAsync();
-            return await _eventCatalogDbContext.Events.Include(x => x.Category).Where(x => x.CategoryId == categoryId).ToListAsync();
+            //if(categoryId == Guid.Empty)
+            //      return await _eventCatalogDbContext.Events.Include(x => x.Category).ToListAsync();
+
+            return await _eventCatalogDbContext.Events
+                .Include(x => x.Category)
+                .Where(x => ((eventIds.Count() == 0) || eventIds.Contains(x.EventId)))
+                .Where(x => (x.CategoryId == categoryId || categoryId == Guid.Empty)).ToListAsync();
         }
 
         public async Task<Event> GetEventById(Guid eventId)
         {
             return await _eventCatalogDbContext.Events.Include(x => x.Category).Where(x => x.EventId == eventId).FirstOrDefaultAsync();
-        }
-
-        public async Task<IEnumerable<Event>> GetEventsByIds(Guid[] eventIds)
-        {
-            return await _eventCatalogDbContext.Events.Include(x => x.Category).Where(x => eventIds.Contains(x.EventId)).ToListAsync();
         }
     }
 }
