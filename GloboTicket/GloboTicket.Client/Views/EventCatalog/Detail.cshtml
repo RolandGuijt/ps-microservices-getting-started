@@ -1,19 +1,25 @@
 ﻿@model GloboTicket.Client.Models.Api.Event
 <div class="row">
-    <div class="col">
+    <div class="col-md-4">
         <img src="@Model.ImageUrl" alt="Artist pic" />
     </div>
-    <div class="col">
+    <div class="col-md-8">
         <div class="row">
-            <h2>@Model.Artist - @Model.Name</h2>
+            <div class="col">
+                <h2>@Model.Artist - @Model.Name</h2>
+            </div>
         </div>
         <div class="row mt-3">
-            <h4>@Model.Date.ToShortDateString()</h4>
+            <div class="col">
+                <h4>@Model.Date.ToShortDateString()</h4>
+            </div>
         </div>
-        <div class="row mt-5">
-            @Model.Description
+        <div class="row mt-4">
+            <div class="col">
+                @Model.Description
+            </div>
         </div>
-        <div class="row mt-5">
+        <div class="row mt-4">
             <div class="col">
                 Category: @Model.CategoryName
             </div>
@@ -23,15 +29,22 @@
         </div>
     </div>
 </div>
-<div class="row">
-    <div class="col offset-6">
+<div class="row mt-4">
+    <div class="col offset-4">
         <form class="form" asp-action="AddToBasket" asp-controller="ShoppingBasket">
-            <div class="form-group">
-                <label for="notickets">Enter number of tickets:</label>
-                <input name="numberOfTickets" class="form-control" id="notickets" type="number" value="2" />
-                <input name="eventId" type="hidden" value="@Model.EventId" />
+            <div class="row">
+                <div class="col-md-3">
+                    <label>Enter number of tickets:</label>
+                </div>
+                <div class="col-md-3">
+                    <input name="numberOfTickets" class="form-control" type="number" value="2" />
+                </div>
+                <div class="col-md-2">
+                    <input name="eventId" type="hidden" value="@Model.EventId" />
+                    <button type="submit" class="btn btn-primary">Order</button>
+                </div>
             </div>
-            <button type="submit" class="btn btn-primary">Order</button>
+          
         </form>
     </div>
 </div>

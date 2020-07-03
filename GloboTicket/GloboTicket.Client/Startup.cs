@@ -1,5 +1,4 @@
 using System;
-using System.Net.Http;
 using GloboTicket.Client.Clients;
 using GloboTicket.Client.Models;
 using Microsoft.AspNetCore.Builder;
@@ -12,26 +11,30 @@ namespace GloboTicket.Client
 {
     public class Startup
     {
-        public Startup(IConfiguration configuration)
+        private readonly IHostEnvironment environment;
+        private readonly IConfiguration config;
+
+        public Startup(IConfiguration configuration, IHostEnvironment environment)
         {
-            Configuration = configuration;
+            config = configuration;
+            this.environment = environment;
         }
 
-        public IConfiguration Configuration { get; }
-
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddControllersWithViews();
+            var builder = services.AddControllersWithViews();
+
+            if (environment.IsDevelopment())
+                builder.AddRazorRuntimeCompilation();
 
             services.AddHttpClient<IEventCatalogClient, EventCatalogClient>(c => 
-                c.BaseAddress = new Uri(Configuration["ApiConfigs:EventCatalog:Uri"]));
+                c.BaseAddress = new Uri(config["ApiConfigs:EventCatalog:Uri"]));
             services.AddHttpClient<IShoppingBasketClient, ShoppingBasketClient>(c => 
-                c.BaseAddress = new Uri(Configuration["ApiConfigs:ShoppingBasket:Uri"]));
+                c.BaseAddress = new Uri(config["ApiConfigs:ShoppingBasket:Uri"]));
 
             services.AddSingleton<Settings>();
         }
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
             if (env.IsDevelopment())

@@ -5,12 +5,17 @@
         <tr>
             <th>Event name</th>
             <th>Date</th>
-            <th>Price</th>
             <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
         </tr>
     </thead>
     <tbody>
         @Html.EditorForModel()
+        <tr>
+            <td colspan="4"></td>
+            <td>$@Model.Sum(bl => bl.Price * bl.Quantity)</td>
+        </tr>
     </tbody>
 </table>
 <a asp-controller="EventCatalog" asp-action="Index">Back to event catalog</a>
