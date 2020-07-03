@@ -42,10 +42,10 @@ namespace GloboTicket.Client.Controllers
             return View(lineViewModels);
         }
 
-        public async Task<IActionResult> AddToBasket(Guid eventId)
+        public async Task<IActionResult> AddToBasket(Guid eventId, int numberOfTickets)
         {
             var basketId = Request.Cookies.GetCurrentBasketId(settings);
-            var basketLine = await basketClient.AddToBasket(basketId, settings.UserId, eventId, 1);
+            var basketLine = await basketClient.AddToBasket(basketId, settings.UserId, eventId, numberOfTickets);
             Response.Cookies.Append(settings.BasketIdCookieName, basketLine.BasketId.ToString());
 
             return RedirectToAction("Index");

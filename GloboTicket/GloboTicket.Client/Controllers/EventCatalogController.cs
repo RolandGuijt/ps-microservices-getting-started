@@ -28,5 +28,11 @@ namespace GloboTicket.Client.Controllers
             var events = await eventCatalogClient.GetAll();
             return View(events);
         }
+
+        public async Task<IActionResult> Detail(Guid eventId)
+        {
+            var ev = await eventCatalogClient.GetEvent(eventId);
+            return View(ev);
+        }
     }
 }

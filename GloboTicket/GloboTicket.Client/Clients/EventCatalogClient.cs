@@ -29,5 +29,11 @@ namespace GloboTicket.Client.Clients
             return await response.ReadContentAs<List<Event>>();
         }
 
+        public async Task<Event> GetEvent(Guid id)
+        {
+            var response = await client.GetAsync($"/api/events/{id}");
+            return await response.ReadContentAs<Event>();
+        }
+
     }
 }

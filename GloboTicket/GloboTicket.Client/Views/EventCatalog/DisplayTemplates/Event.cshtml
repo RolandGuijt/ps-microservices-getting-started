@@ -16,11 +16,6 @@
         $@Model.Price
     </td>
     <td>
-        <a asp-controller="ShoppingBasket" asp-action="AddToBasket" asp-route-eventId="@Model.EventId">Buy ticket</a>
-    </td>
-</tr>
-<tr>
-    <td colspan="5">
-        @Model.Description
+        <a asp-action="Detail" asp-route-eventId="@Model.EventId">Details and buy!</a>
     </td>
 </tr>
