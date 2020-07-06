@@ -29,10 +29,18 @@ namespace GloboTicket.Services.ShoppingBasket.Repositories
                 .Where(b => b.BasketLineId == basketLineId).FirstOrDefaultAsync();
         }
 
-        public void AddBasketLine(Guid basketId, BasketLine basketLine)
+        public async Task<BasketLine> AddOrUpdateBasketLine(Guid basketId, BasketLine basketLine)
         {
-            basketLine.BasketId = basketId;
-            _shoppingBasketDbContext.BasketLines.Add(basketLine);
+            var existingLine = await _shoppingBasketDbContext.BasketLines
+                .Where(b => b.BasketId == basketId && b.EventId == basketLine.EventId).FirstOrDefaultAsync();
+            if (existingLine == null)
+            {
+                basketLine.BasketId = basketId;
+                _shoppingBasketDbContext.BasketLines.Add(basketLine);
+                return basketLine;
+            }
+            existingLine.TicketAmount += basketLine.TicketAmount;
+            return existingLine;
         }
 
         public void UpdateBasketLine(BasketLine basketLine)

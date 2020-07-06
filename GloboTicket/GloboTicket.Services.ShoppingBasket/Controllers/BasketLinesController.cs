@@ -67,10 +67,10 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
 
             var basketLineEntity = _mapper.Map<Entities.BasketLine>(basketLineForCreation);
 
-            _basketLinesRepository.AddBasketLine(basketId, basketLineEntity);
+            var processedBasketLine = await _basketLinesRepository.AddOrUpdateBasketLine(basketId, basketLineEntity);
             await _basketLinesRepository.SaveChanges();
 
-            var basketLineToReturn = _mapper.Map<BasketLine>(basketLineEntity);
+            var basketLineToReturn = _mapper.Map<BasketLine>(processedBasketLine);
 
             return CreatedAtRoute(
                 "GetBasketLine",
