@@ -8,11 +8,11 @@ using GloboTicket.Client.Models.Api;
 
 namespace GloboTicket.Client.Clients
 {
-    public class EventCatalogClient: IEventCatalogClient
+    public class EventCatalogService: IEventCatalogService
     {
         private readonly HttpClient client;
 
-        public EventCatalogClient(HttpClient client)
+        public EventCatalogService(HttpClient client)
         {
             this.client = client;
         }

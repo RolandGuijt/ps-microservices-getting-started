@@ -8,11 +8,11 @@ using GloboTicket.Client.Models.Api;
 
 namespace GloboTicket.Client.Clients
 {
-    public class ShoppingBasketClient: IShoppingBasketClient
+    public class ShoppingBasketService: IShoppingBasketService
     {
         private readonly HttpClient client;
 
-        public ShoppingBasketClient(HttpClient client)
+        public ShoppingBasketService(HttpClient client)
         {
             this.client = client;
         }

@@ -9,11 +9,11 @@ namespace GloboTicket.Client.Controllers
 {
     public class EventCatalogController : Controller
     {
-        private readonly IEventCatalogClient eventCatalogClient;
-        private readonly IShoppingBasketClient shoppingBasketClient;
+        private readonly IEventCatalogService eventCatalogClient;
+        private readonly IShoppingBasketService shoppingBasketClient;
         private readonly Settings settings;
 
-        public EventCatalogController(IEventCatalogClient eventCatalogClient, IShoppingBasketClient shoppingBasketClient, Settings settings)
+        public EventCatalogController(IEventCatalogService eventCatalogClient, IShoppingBasketService shoppingBasketClient, Settings settings)
         {
             this.eventCatalogClient = eventCatalogClient;
             this.shoppingBasketClient = shoppingBasketClient;

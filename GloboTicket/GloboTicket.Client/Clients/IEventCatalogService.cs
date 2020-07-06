@@ -5,7 +5,7 @@ using GloboTicket.Client.Models.Api;
 
 namespace GloboTicket.Client.Clients
 {
-    public interface IEventCatalogClient
+    public interface IEventCatalogService
     {
         Task<IEnumerable<Event>> GetAll();
         Task<IEnumerable<Event>> GetByEventIds(IEnumerable<Guid> ids);
