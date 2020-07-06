@@ -10,5 +10,7 @@ namespace GloboTicket.Client.Clients
         Task<BasketLine> AddToBasket(Guid basketId, Guid userId, Guid eventId, int amount);
         Task<IEnumerable<BasketLine>> GetLinesForBasket(Guid basketId);
         Task<Basket> GetBasket(Guid basketId);
+        Task UpdateLine(Guid basketId, Guid lineId, int quantity);
+        Task RemoveLine(Guid basketId, Guid lineId);
     }
 }

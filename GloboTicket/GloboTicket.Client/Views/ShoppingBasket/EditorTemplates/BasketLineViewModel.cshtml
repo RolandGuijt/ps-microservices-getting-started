@@ -3,7 +3,18 @@
 <tr>
     <td>@Model.EventName</td>
     <td>@Model.Date.ToString("MM/dd")</td>
-    <td>@Model.Quantity</td>
     <td>$@Model.Price</td>
+    <td>
+        <form asp-action="UpdateLine">
+            <input type="hidden" asp-for="@Model.LineId" />
+            <input type="number" asp-for="@Model.Quantity" />
+            <button type="submit">Update</button>
+        </form>
+    </td>
     <td>$@(Model.Price * Model.Quantity) </td>
+    <td>
+        <a asp-action="RemoveLine" asp-route-lineId="@Model.LineId">
+            <img class="lineIcon" src="~/img/multiply-2_Orange.png" />
+        </a>
+    </td>
 </tr>

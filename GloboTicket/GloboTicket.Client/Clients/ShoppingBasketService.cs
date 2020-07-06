@@ -46,5 +46,16 @@ namespace GloboTicket.Client.Clients
             return await response.ReadContentAs<BasketLine[]>();
 
         }
+
+        public async Task UpdateLine(Guid basketId, Guid lineId, int quantity)
+        {
+            await client.PutAsJson($"/api/baskets/{basketId}/basketLines/{lineId}", 
+                new BasketLineForUpdate { TicketAmount = quantity });
+        }
+
+        public async Task RemoveLine(Guid basketId, Guid lineId)
+        {
+            await client.DeleteAsync($"/api/baskets/{basketId}/basketLines/{lineId}");
+        }
     }
 }

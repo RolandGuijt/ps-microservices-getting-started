@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using GloboTicket.Client.Clients;
@@ -32,6 +33,7 @@ namespace GloboTicket.Client.Controllers
                 var currentEvent = eventsInBasket.Single(e => e.EventId == bl.EventId);
                 return new BasketLineViewModel
                 {
+                    LineId = bl.BasketLineId,
                     EventId = bl.EventId,
                     EventName = currentEvent.Name,
                     Date = currentEvent.Date,
@@ -42,12 +44,28 @@ namespace GloboTicket.Client.Controllers
             return View(lineViewModels);
         }
 
-        public async Task<IActionResult> AddToBasket(Guid eventId, int numberOfTickets)
+        public async Task<IActionResult> AddLine(Guid eventId, int numberOfTickets)
         {
             var basketId = Request.Cookies.GetCurrentBasketId(settings);
             var basketLine = await basketService.AddToBasket(basketId, settings.UserId, eventId, numberOfTickets);
             Response.Cookies.Append(settings.BasketIdCookieName, basketLine.BasketId.ToString());
 
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> UpdateLine(IEnumerable<BasketLineViewModel> basketLineUpdates)
+        {
+            if (basketLineUpdates == null || basketLineUpdates.Count() != 1)
+                throw new ArgumentException("Error updating basket line: unexpected amount of updates");
+            var basketId = Request.Cookies.GetCurrentBasketId(settings);
+            await basketService.UpdateLine(basketId, basketLineUpdates.First().LineId, basketLineUpdates.First().Quantity);
+            return RedirectToAction("Index");
+        }
+
+        public async Task<IActionResult> RemoveLine(Guid lineId)
+        {
+            var basketId = Request.Cookies.GetCurrentBasketId(settings);
+            await basketService.RemoveLine(basketId, lineId);
             return RedirectToAction("Index");
         }
     }
