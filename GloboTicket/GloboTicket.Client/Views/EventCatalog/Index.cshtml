@@ -1,4 +1,4 @@
-﻿@model IEnumerable<GloboTicket.Client.Models.Api.Event>
+﻿@model GloboTicket.Client.Models.View.EventListModel
 
 <table class="table">
     <thead>
@@ -11,10 +11,10 @@
         </tr>
     </thead>
     <tbody>
-        @Html.DisplayForModel()
+        @Html.DisplayFor(m => m.Events)
     </tbody>
 </table>
 
 @section Widget {
-    <partial name="_ShoppingCartWidget" model="ViewBag.NumberOfBasketItems" />
+    <partial name="_ShoppingCartWidget" model="@Model.NumberOfItems" />
 }

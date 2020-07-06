@@ -32,7 +32,7 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
             }
 
             var result = _mapper.Map<Basket>(basket);
-            result.NumberOfLines = basket.BasketLines.Count();
+            result.NumberOfItems = basket.BasketLines.Sum(bl => bl.TicketAmount);
             return Ok(result);
         }
 
