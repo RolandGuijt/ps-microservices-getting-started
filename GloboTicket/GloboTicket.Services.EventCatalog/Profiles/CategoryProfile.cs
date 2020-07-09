@@ -6,7 +6,7 @@ namespace GloboTicket.Services.EventCatalog.Profiles
     {
         public CategoryProfile()
         {
-            CreateMap<Entities.Category, Models.Category>().ReverseMap();
+            CreateMap<Entities.Category, Models.CategoryDto>().ReverseMap();
         }
     }
 }

@@ -11,7 +11,6 @@ namespace GloboTicket.Services.EventCatalog.Controllers
     [ApiController]
     public class EventController : ControllerBase
     {
-
         private readonly IEventRepository _eventRepository;
         private readonly IMapper _mapper;
 
