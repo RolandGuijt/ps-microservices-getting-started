@@ -1,5 +1,16 @@
 ﻿@model GloboTicket.Client.Models.View.EventListModel
 
+@{ 
+    var categoryListItems = Model.Categories.Select(c =>
+        new SelectListItem { Value = c.CategoryId.ToString(), Text = c.Name }
+    );
+}
+
+<form asp-action="SelectCategory" method="post">
+    <select name="selectedCategory" asp-items="categoryListItems"></select>
+    <button type="submit">Filter</button>
+</form>
+
 <table class="table">
     <thead>
         <tr>

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using GloboTicket.Client.Extensions;
 using GloboTicket.Client.Models.Api;
 
-namespace GloboTicket.Client.Clients
+namespace GloboTicket.Client.Services
 {
     public class ShoppingBasketService: IShoppingBasketService
     {

@@ -1,9 +1,10 @@
 ﻿using System;
 using System.Threading.Tasks;
-using GloboTicket.Client.Clients;
 using GloboTicket.Client.Extensions;
 using GloboTicket.Client.Models;
+using GloboTicket.Client.Models.Api;
 using GloboTicket.Client.Models.View;
+using GloboTicket.Client.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GloboTicket.Client.Controllers
@@ -21,13 +22,33 @@ namespace GloboTicket.Client.Controllers
             this.settings = settings;
         }
 
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(Guid categoryId)
         {
             var currentBasketId = Request.Cookies.GetCurrentBasketId(settings);
-            var currentBasket = await shoppingBasketService.GetBasket(currentBasketId);
-            var numberOfItems = currentBasket == null ? 0 : currentBasket.NumberOfItems;
-            var events = await eventCatalogService.GetAll();
-            return View(new EventListModel { Events = events, NumberOfItems = numberOfItems });
+
+            var getBasket = currentBasketId == Guid.Empty ? Task.FromResult<Basket>(null) :
+                shoppingBasketService.GetBasket(currentBasketId);
+            var getCategories = eventCatalogService.GetCategories();
+            var getEvents = categoryId == Guid.Empty ? eventCatalogService.GetAll() :
+                eventCatalogService.GetByCategoryId(categoryId);
+            await Task.WhenAll(new Task[] { getBasket, getCategories, getEvents });
+
+            var numberOfItems = getBasket.Result == null ? 0 : getBasket.Result.NumberOfItems;
+
+            return View(
+                new EventListModel
+                {
+                    Events = getEvents.Result,
+                    Categories = getCategories.Result,
+                    NumberOfItems = numberOfItems
+                }
+            );
+        }
+
+        [HttpPost]
+        public IActionResult SelectCategory([FromForm]Guid selectedCategory)
+        {
+            return RedirectToAction("Index", new { categoryId = selectedCategory });
         }
 
         public async Task<IActionResult> Detail(Guid eventId)

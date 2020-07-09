@@ -1,14 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
 using GloboTicket.Client.Extensions;
 using GloboTicket.Client.Models.Api;
 
-namespace GloboTicket.Client.Clients
+namespace GloboTicket.Client.Services
 {
-    public class EventCatalogService: IEventCatalogService
+    public class EventCatalogService : IEventCatalogService
     {
         private readonly HttpClient client;
 
@@ -23,6 +22,12 @@ namespace GloboTicket.Client.Clients
             return await response.ReadContentAs<List<Event>>();
         }
 
+        public async Task<IEnumerable<Event>> GetByCategoryId(Guid categoryid)
+        {
+            var response = await client.GetAsync($"/api/events/?categoryId={categoryid}");
+            return await response.ReadContentAs<List<Event>>();
+        }
+
         public async Task<IEnumerable<Event>> GetByEventIds(IEnumerable<Guid> ids)
         {
             var response = await client.GetAsync($"/api/events{ids.ToQueryString()}");
@@ -33,6 +38,12 @@ namespace GloboTicket.Client.Clients
         {
             var response = await client.GetAsync($"/api/events/{id}");
             return await response.ReadContentAs<Event>();
+        }
+
+        public async Task<IEnumerable<Category>> GetCategories()
+        {
+            var response = await client.GetAsync("/api/categories");
+            return await response.ReadContentAs<List<Category>>();
         }
 
     }

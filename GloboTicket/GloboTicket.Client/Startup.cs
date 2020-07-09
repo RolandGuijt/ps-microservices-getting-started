@@ -1,5 +1,5 @@
 using System;
-using GloboTicket.Client.Clients;
+using GloboTicket.Client.Services;
 using GloboTicket.Client.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;

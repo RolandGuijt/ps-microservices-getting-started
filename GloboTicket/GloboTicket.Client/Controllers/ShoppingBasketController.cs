@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GloboTicket.Client.Clients;
+using GloboTicket.Client.Services;
 using GloboTicket.Client.Extensions;
 using GloboTicket.Client.Models;
 using GloboTicket.Client.Models.View;
