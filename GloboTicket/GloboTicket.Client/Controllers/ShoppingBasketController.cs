@@ -49,12 +49,10 @@ namespace GloboTicket.Client.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> UpdateLine(IEnumerable<BasketLineViewModel> basketLineUpdates)
+        public async Task<IActionResult> UpdateLine(BasketLineViewModel basketLineUpdate)
         {
-            if (basketLineUpdates == null || basketLineUpdates.Count() != 1)
-                throw new ArgumentException("Error updating basket line: unexpected amount of updates");
             var basketId = Request.Cookies.GetCurrentBasketId(settings);
-            await basketService.UpdateLine(basketId, basketLineUpdates.First().LineId, basketLineUpdates.First().Quantity);
+            await basketService.UpdateLine(basketId, basketLineUpdate.LineId, basketLineUpdate.Quantity);
             return RedirectToAction("Index");
         }
 

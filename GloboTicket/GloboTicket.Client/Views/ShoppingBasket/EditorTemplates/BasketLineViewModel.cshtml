@@ -6,8 +6,8 @@
     <td>$@Model.Price</td>
     <td>
         <form asp-action="UpdateLine">
-            <input type="hidden" asp-for="@Model.LineId" />
-            <input type="number" asp-for="@Model.Quantity" />
+            <input type="hidden" name="LineId" value="@Model.LineId" />
+            <input type="number" name="Quantity" value="@Model.Quantity" />
             <button type="submit">Update</button>
         </form>
     </td>
