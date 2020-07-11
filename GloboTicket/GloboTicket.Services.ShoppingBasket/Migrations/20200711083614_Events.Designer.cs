@@ -4,14 +4,16 @@ using GloboTicket.Services.ShoppingBasket.DbContexts;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GloboTicket.Services.ShoppingBasket.Migrations
 {
     [DbContext(typeof(ShoppingBasketDbContext))]
-    partial class ShoppingBasketDbContextModelSnapshot : ModelSnapshot
+    [Migration("20200711083614_Events")]
+    partial class Events
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

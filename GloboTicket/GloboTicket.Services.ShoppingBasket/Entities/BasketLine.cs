@@ -15,6 +15,7 @@ namespace GloboTicket.Services.ShoppingBasket.Entities
 
         [Required]
         public Guid EventId { get; set; }
+        public Event Event { get; set; }
 
         [Required]
         public int TicketAmount { get; set; }
