@@ -40,7 +40,8 @@ namespace GloboTicket.Client.Controllers
                 {
                     Events = getEvents.Result,
                     Categories = getCategories.Result,
-                    NumberOfItems = numberOfItems
+                    NumberOfItems = numberOfItems,
+                    SelectedCategory = categoryId
                 }
             );
         }
