@@ -9,5 +9,7 @@ namespace GloboTicket.Client.Models.Api
         public Guid EventId { get; set; }
         [Required]
         public int TicketAmount { get; set; }
+        [Required]
+        public int Price { get; set; }
     }
 }

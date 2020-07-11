@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using GloboTicket.Client.Extensions;
+using GloboTicket.Client.Models;
 using GloboTicket.Client.Models.Api;
 
 namespace GloboTicket.Client.Services
@@ -11,22 +12,24 @@ namespace GloboTicket.Client.Services
     public class ShoppingBasketService: IShoppingBasketService
     {
         private readonly HttpClient client;
+        private readonly Settings settings;
 
-        public ShoppingBasketService(HttpClient client)
+        public ShoppingBasketService(HttpClient client, Settings settings)
         {
             this.client = client;
+            this.settings = settings;
         }
 
-        public async Task<BasketLine> AddToBasket(Guid basketId, Guid userId, Guid eventId, int amount)
+        public async Task<BasketLine> AddToBasket(Guid basketId, BasketLineForCreation basketLine)
         {
             if (basketId == Guid.Empty)
             {
-                var basketResponse = await client.PostAsJson("/api/baskets", new BasketForCreation { UserId = userId });
+                var basketResponse = await client.PostAsJson("/api/baskets", new BasketForCreation { UserId = settings.UserId });
                 var basket = await basketResponse.ReadContentAs<Basket>();
                 basketId = basket.BasketId;
             }
 
-            var response = await client.PostAsJson($"api/baskets/{basketId}/basketlines", new BasketLineForCreation { EventId = eventId, TicketAmount = amount });
+            var response = await client.PostAsJson($"api/baskets/{basketId}/basketlines", basketLine);
             return await response.ReadContentAs<BasketLine>();
         }
 

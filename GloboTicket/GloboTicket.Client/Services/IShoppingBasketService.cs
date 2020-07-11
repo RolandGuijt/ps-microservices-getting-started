@@ -7,7 +7,7 @@ namespace GloboTicket.Client.Services
 {
     public interface IShoppingBasketService
     {
-        Task<BasketLine> AddToBasket(Guid basketId, Guid userId, Guid eventId, int amount);
+        Task<BasketLine> AddToBasket(Guid basketId, BasketLineForCreation basketLine);
         Task<IEnumerable<BasketLine>> GetLinesForBasket(Guid basketId);
         Task<Basket> GetBasket(Guid basketId);
         Task UpdateLine(Guid basketId, Guid lineId, int quantity);

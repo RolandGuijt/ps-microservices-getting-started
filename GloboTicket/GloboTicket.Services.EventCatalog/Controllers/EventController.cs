@@ -22,10 +22,9 @@ namespace GloboTicket.Services.EventCatalog.Controllers
 
         [HttpGet(Name = "GetAllEvents")]
         public async Task<ActionResult<IEnumerable<Models.EventDto>>> Get(
-            [FromQuery] Guid categoryId,
-            [FromQuery] Guid[] eventIds)
+            [FromQuery] Guid categoryId)
         {
-            var result = await _eventRepository.GetEvents(categoryId, eventIds);
+            var result = await _eventRepository.GetEvents(categoryId);
             return Ok(_mapper.Map<List<Models.EventDto>>(result));
         }
 

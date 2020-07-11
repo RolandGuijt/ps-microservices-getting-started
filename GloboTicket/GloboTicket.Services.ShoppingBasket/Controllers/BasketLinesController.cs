@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using GloboTicket.Services.ShoppingBasket.Models;
 using GloboTicket.Services.ShoppingBasket.Repositories;
+using GloboTicket.Services.ShoppingBasket.Services;
 using Microsoft.AspNetCore.Mvc;
 
 namespace GloboTicket.Services.ShoppingBasket.Controllers
@@ -15,14 +15,18 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
     {
         private readonly IBasketRepository _basketRepository;
         private readonly IBasketLinesRepository _basketLinesRepository;
+        private readonly IEventRepository _eventRepository;
+        private readonly IEventCatalogService _eventCatalogService;
         private readonly IMapper _mapper;
 
         public BasketLinesController(IBasketRepository basketRepository, 
-            IBasketLinesRepository basketLinesRepository,
-            IMapper mapper)
+            IBasketLinesRepository basketLinesRepository, IEventRepository eventRepository, 
+            IEventCatalogService eventCatalogService, IMapper mapper)
         {
             _basketRepository = basketRepository;
             _basketLinesRepository = basketLinesRepository;
+            _eventRepository = eventRepository;
+            _eventCatalogService = eventCatalogService;
             _mapper = mapper;
         }
 
@@ -63,6 +67,13 @@ namespace GloboTicket.Services.ShoppingBasket.Controllers
             if (!await _basketRepository.BasketExists(basketId))
             {
                 return NotFound();
+            }
+
+            if (!await _eventRepository.EventExists(basketLineForCreation.EventId))
+            {
+                var eventFromCatalog = await _eventCatalogService.GetEvent(basketLineForCreation.EventId);
+                _eventRepository.AddEvent(eventFromCatalog);
+                await _eventRepository.SaveChanges();
             }
 
             var basketLineEntity = _mapper.Map<Entities.BasketLine>(basketLineForCreation);

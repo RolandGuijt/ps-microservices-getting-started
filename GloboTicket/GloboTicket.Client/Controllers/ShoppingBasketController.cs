@@ -7,6 +7,7 @@ using GloboTicket.Client.Extensions;
 using GloboTicket.Client.Models;
 using GloboTicket.Client.Models.View;
 using Microsoft.AspNetCore.Mvc;
+using GloboTicket.Client.Models.Api;
 
 namespace GloboTicket.Client.Controllers
 {
@@ -26,29 +27,24 @@ namespace GloboTicket.Client.Controllers
         public async Task<IActionResult> Index()
         {
             var basketLines = await basketService.GetLinesForBasket(Request.Cookies.GetCurrentBasketId(settings));
-            var eventIds = basketLines.Select(bl => bl.EventId);
-            var eventsInBasket = await catalogService.GetByEventIds(eventIds);
-            var lineViewModels = basketLines.Select(bl =>
+            var lineViewModels = basketLines.Select(bl => new BasketLineViewModel
             {
-                var currentEvent = eventsInBasket.Single(e => e.EventId == bl.EventId);
-                return new BasketLineViewModel
-                {
-                    LineId = bl.BasketLineId,
-                    EventId = bl.EventId,
-                    EventName = currentEvent.Name,
-                    Date = currentEvent.Date,
-                    Price = currentEvent.Price,
-                    Quantity = bl.TicketAmount
-                };
-            });
+                LineId = bl.BasketLineId,
+                EventId = bl.EventId,
+                EventName = bl.Event.Name,
+                Date = bl.Event.Date,
+                Price = bl.Price,
+                Quantity = bl.TicketAmount
+            }
+            );
             return View(lineViewModels);
         }
 
-        public async Task<IActionResult> AddLine(Guid eventId, int numberOfTickets)
+        public async Task<IActionResult> AddLine(BasketLineForCreation basketLine)
         {
             var basketId = Request.Cookies.GetCurrentBasketId(settings);
-            var basketLine = await basketService.AddToBasket(basketId, settings.UserId, eventId, numberOfTickets);
-            Response.Cookies.Append(settings.BasketIdCookieName, basketLine.BasketId.ToString());
+            var newLine = await basketService.AddToBasket(basketId, basketLine);
+            Response.Cookies.Append(settings.BasketIdCookieName, newLine.BasketId.ToString());
 
             return RedirectToAction("Index");
         }

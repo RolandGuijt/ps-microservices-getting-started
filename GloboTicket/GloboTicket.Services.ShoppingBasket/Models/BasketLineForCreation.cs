@@ -8,6 +8,8 @@ namespace GloboTicket.Services.ShoppingBasket.Models
         [Required]
         public Guid EventId { get; set; }
         [Required]
+        public int Price { get; set; }
+        [Required]
         public int TicketAmount { get; set; }
     }
 }

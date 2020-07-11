@@ -37,10 +37,11 @@
                     <label>Enter number of tickets:</label>
                 </div>
                 <div class="col-md-3">
-                    <input name="numberOfTickets" class="form-control" type="number" value="2" />
+                    <input name="TicketAmount" class="form-control" type="number" value="2" />
                 </div>
                 <div class="col-md-2">
-                    <input name="eventId" type="hidden" value="@Model.EventId" />
+                    <input asp-for="EventId" type="hidden" />
+                    <input asp-for="Price" type="hidden" />
                     <button type="submit" class="btn btn-primary">Order</button>
                 </div>
             </div>

@@ -5,6 +5,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using GloboTicket.Services.ShoppingBasket.DbContexts;
 using GloboTicket.Services.ShoppingBasket.Repositories;
+using GloboTicket.Services.ShoppingBasket.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -35,8 +36,10 @@ namespace GloboTicket.Services.ShoppingBasket
             services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
             services.AddScoped<IBasketRepository, BasketRepository>();
-
             services.AddScoped<IBasketLinesRepository, BasketLinesRepository>();
+            services.AddScoped<IEventRepository, EventRepository>();
+            services.AddHttpClient<IEventCatalogService, EventCatalogService>(c =>
+                c.BaseAddress = new Uri(Configuration["ApiConfigs:EventCatalog:Uri"]));
 
             services.AddDbContext<ShoppingBasketDbContext>(options =>
             {
