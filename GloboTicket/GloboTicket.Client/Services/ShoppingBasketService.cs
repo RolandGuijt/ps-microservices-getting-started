@@ -50,10 +50,9 @@ namespace GloboTicket.Client.Services
 
         }
 
-        public async Task UpdateLine(Guid basketId, Guid lineId, int quantity)
+        public async Task UpdateLine(Guid basketId, BasketLineForUpdate basketLineForUpdate)
         {
-            await client.PutAsJson($"/api/baskets/{basketId}/basketLines/{lineId}", 
-                new BasketLineForUpdate { TicketAmount = quantity });
+            await client.PutAsJson($"/api/baskets/{basketId}/basketLines/{basketLineForUpdate.LineId}", basketLineForUpdate);
         }
 
         public async Task RemoveLine(Guid basketId, Guid lineId)

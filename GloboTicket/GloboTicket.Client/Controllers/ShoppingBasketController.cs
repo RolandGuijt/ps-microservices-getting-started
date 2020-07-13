@@ -1,26 +1,23 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using GloboTicket.Client.Services;
 using GloboTicket.Client.Extensions;
 using GloboTicket.Client.Models;
-using GloboTicket.Client.Models.View;
-using Microsoft.AspNetCore.Mvc;
 using GloboTicket.Client.Models.Api;
+using GloboTicket.Client.Models.View;
+using GloboTicket.Client.Services;
+using Microsoft.AspNetCore.Mvc;
 
 namespace GloboTicket.Client.Controllers
 {
     public class ShoppingBasketController : Controller
     {
         private readonly IShoppingBasketService basketService;
-        private readonly IEventCatalogService catalogService;
         private readonly Settings settings;
 
-        public ShoppingBasketController(IShoppingBasketService basketService, IEventCatalogService catalogService, Settings settings)
+        public ShoppingBasketController(IShoppingBasketService basketService, Settings settings)
         {
             this.basketService = basketService;
-            this.catalogService = catalogService;
             this.settings = settings;
         }
 
@@ -40,6 +37,8 @@ namespace GloboTicket.Client.Controllers
             return View(lineViewModels);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
         public async Task<IActionResult> AddLine(BasketLineForCreation basketLine)
         {
             var basketId = Request.Cookies.GetCurrentBasketId(settings);
@@ -49,10 +48,12 @@ namespace GloboTicket.Client.Controllers
             return RedirectToAction("Index");
         }
 
-        public async Task<IActionResult> UpdateLine(BasketLineViewModel basketLineUpdate)
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> UpdateLine(BasketLineForUpdate basketLineUpdate)
         {
             var basketId = Request.Cookies.GetCurrentBasketId(settings);
-            await basketService.UpdateLine(basketId, basketLineUpdate.LineId, basketLineUpdate.Quantity);
+            await basketService.UpdateLine(basketId, basketLineUpdate);
             return RedirectToAction("Index");
         }
 
