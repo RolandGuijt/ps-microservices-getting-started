@@ -1,11 +1,16 @@
 using System;
-using GloboTicket.Client.Services;
 using GloboTicket.Client.Models;
+using GloboTicket.Client.Services;
+using GloboTicket.Messages;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Azure.Storage;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Rebus.Config;
+using Rebus.Routing.TypeBased;
+using Rebus.ServiceProvider;
 
 namespace GloboTicket.Client
 {
@@ -27,12 +32,19 @@ namespace GloboTicket.Client
             if (environment.IsDevelopment())
                 builder.AddRazorRuntimeCompilation();
 
-            services.AddHttpClient<IEventCatalogService, EventCatalogService>(c => 
+            services.AddHttpClient<IEventCatalogService, EventCatalogService>(c =>
                 c.BaseAddress = new Uri(config["ApiConfigs:EventCatalog:Uri"]));
-            services.AddHttpClient<IShoppingBasketService, ShoppingBasketService>(c => 
+            services.AddHttpClient<IShoppingBasketService, ShoppingBasketService>(c =>
                 c.BaseAddress = new Uri(config["ApiConfigs:ShoppingBasket:Uri"]));
 
             services.AddSingleton<Settings>();
+
+            var storageAccount = CloudStorageAccount.Parse(config["AzureQueues:ConnectionString"]);
+
+            services.AddRebus(c => c
+                .Transport(t => t.UseAzureStorageQueuesAsOneWayClient(storageAccount))
+                .Routing(r => r.TypeBased().Map<NewOrderMessage>(config["AzureQueues:QueueName"]))
+            );
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -49,6 +61,7 @@ namespace GloboTicket.Client
             }
             app.UseHttpsRedirection();
             app.UseStaticFiles();
+            app.ApplicationServices.UseRebus();
 
             app.UseRouting();
 
