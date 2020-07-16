@@ -9,15 +9,21 @@
 </head>
 <body>
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
-            <div class="container">
-                <a class="navbar-brand" asp-controller="EventCatalog" asp-action="Index">GloboTicket</a>
+        <div class="container">
+            <div class="row mb-3 pb-3 pt-3">
+                <div class="col-md-9">
+                    <a class="navbar-brand" asp-controller="EventCatalog" asp-action="Index">
+                        <img src="~/img/_Export_globoticket-horizontal-white.png" />
+                    </a>
+                </div>
 
-                <div>
-                    @RenderSection("Widget", required: false)
+                <div class="col-md-3 mt-5">
+                    <div>
+                        @RenderSection("Widget", required: false)
+                    </div>
                 </div>
             </div>
-        </nav>
+        </div>
     </header>
     <div class="container">
         <main role="main" class="pb-3">
