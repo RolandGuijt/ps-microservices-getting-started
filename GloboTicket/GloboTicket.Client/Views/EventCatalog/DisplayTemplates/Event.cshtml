@@ -12,10 +12,10 @@
     <td>
         @Model.Artist
     </td>
-    <td>
+    <td class="bold">
         $@Model.Price
     </td>
     <td>
-        <a asp-action="Detail" asp-route-eventId="@Model.EventId">Details and buy!</a>
+        <a class="btn-primary" type="button" asp-action="Detail" asp-route-eventId="@Model.EventId">PURCHASE DETAILS</a>
     </td>
 </tr>
