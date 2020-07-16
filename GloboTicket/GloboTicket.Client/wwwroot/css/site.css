@@ -3,18 +3,46 @@
     src: url('../fonts/opensans-regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'opensans-bold';
+    src: url('../fonts/opensans-bold.ttf') format('truetype');
+}
+
 a {
   color: #0366d6;
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+    border-radius: 30px;
+    background-color: #51b5b1;
+    padding: 10px 18px 10px 18px;
+    font-size: 0,8em;
+}
+
+.filterButton {
+    border-radius: 30px;
+    background-color: #edf7f7;
+    border: 2px solid #51b5b1;
+    width: 100px;
+    height: 40px;
+    color: #51b5b1;
+    font-size: 0,8em;
+}
+
+select {
+    height: 40px;
+    font-family: opensans-bold;
+    padding-left: 14px;
+    padding-right: 4px;
+    margin-right: 20px;
+}
+
+body {
+    font-family: opensans-regular;
 }
 
 html {
-  font-size: 14px;
+    font-size: 14px;
 }
 
 .shoppingCartIcon {
@@ -26,15 +54,28 @@ html {
     font-size:2em;
 }
 
-.headerText {
-    font-family: opensans-regular;
+.bold {
+    font-family: opensans-bold;
+    font-size: 1.2em;
+}
+
+.tickets {
     font-size: 0.5em;
     display: inline-block;
     vertical-align: middle;
 }
 
+.columnHeader {
+    font-size: 0.9em;
+    color: grey;
+}
+
+    .columnHeader th {
+        border-top: none;
+    }
+
 .artistPic {
-    width: 100px;
+    width: 130px;
 }
 
 .lineIcon {
@@ -48,4 +89,10 @@ html {
 header {
     background-color: #000000;
     color: #fff;
+}
+
+.table tr td {
+    vertical-align: middle;
+    padding-top: 20px;
+    padding-bottom: 20px;
 }

@@ -7,10 +7,12 @@
     categoryListItems.Insert(0, new SelectListItem { Text = "All" });
 }
 
-<form asp-action="SelectCategory" method="post">
-    <select asp-for="SelectedCategory" asp-items="categoryListItems"></select>
-    <button type="submit">Filter</button>
-</form>
+<div class="row mt-5 mb-3">
+    <form asp-action="SelectCategory" method="post">
+        <select asp-for="SelectedCategory" asp-items="categoryListItems"></select>
+        <button type="submit" class="filterButton">FILTER</button>
+    </form>
+</div>
 
 @if (Model.Events.Count() == 0)
 {
@@ -20,12 +22,12 @@ else
 {
     <table class="table">
         <thead>
-            <tr>
+            <tr class="columnHeader">
                 <th></th>
-                <th>Date</th>
-                <th>Name</th>
-                <th>Artist</th>
-                <th>Price</th>
+                <th>DATE</th>
+                <th>NAME</th>
+                <th>ARTIST</th>
+                <th>PRICE</th>
             </tr>
         </thead>
         <tbody>
