@@ -2,19 +2,25 @@
 
 <tr>
     <td>@Model.EventName</td>
-    <td>@Model.Date.ToString("MM/dd")</td>
-    <td>$@Model.Price</td>
+    <td>@Model.Date.DateTime.ToShortDateString()</td>
+    <td class="bold">$@Model.Price</td>
     <td>
         <form asp-action="UpdateLine">
             <input type="hidden" name="LineId" value="@Model.LineId" />
-            <input type="number" name="TicketAmount" value="@Model.Quantity" />
-            <button type="submit">Update</button>
+            <select name="TicketAmount" class="w-25" asp-for="@Model.Quantity">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+            </select>
+            <button type="submit" class="filterButton">Update</button>
         </form>
     </td>
-    <td>$@(Model.Price * Model.Quantity) </td>
+    <td class="bold big">$@(Model.Price * Model.Quantity) </td>
     <td>
         <a asp-action="RemoveLine" asp-route-lineId="@Model.LineId">
-            <img class="lineIcon" src="~/img/multiply-2_Orange.png" />
+            <img class="cancelIcon" src="~/img/times.svg" />
         </a>
     </td>
 </tr>

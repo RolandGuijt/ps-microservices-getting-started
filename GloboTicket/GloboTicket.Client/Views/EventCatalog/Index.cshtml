@@ -14,27 +14,29 @@
     </form>
 </div>
 
-@if (Model.Events.Count() == 0)
-{
-    <text>No events were found.</text>
-}
-else
-{
-    <table class="table">
-        <thead>
-            <tr class="columnHeader">
-                <th></th>
-                <th>DATE</th>
-                <th>NAME</th>
-                <th>ARTIST</th>
-                <th>PRICE</th>
-            </tr>
-        </thead>
-        <tbody>
-            @Html.DisplayFor(m => m.Events)
-        </tbody>
-    </table>
-}
+<div class="row">
+    @if (Model.Events.Count() == 0)
+    {
+        <text>No events were found.</text>
+    }
+    else
+    {
+        <table class="table">
+            <thead>
+                <tr class="columnHeader">
+                    <th></th>
+                    <th>DATE</th>
+                    <th>NAME</th>
+                    <th>ARTIST</th>
+                    <th>PRICE</th>
+                </tr>
+            </thead>
+            <tbody>
+                @Html.DisplayFor(m => m.Events)
+            </tbody>
+        </table>
+    }
+</div>
 
 @section Widget {
     <partial name="_ShoppingCartWidget" model="@Model.NumberOfItems" />

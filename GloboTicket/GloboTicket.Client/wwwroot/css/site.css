@@ -15,8 +15,9 @@ a {
 .btn-primary {
     border-radius: 30px;
     background-color: #51b5b1;
-    padding: 10px 18px 10px 18px;
-    font-size: 0,8em;
+    padding: 10px 25px 10px 25px;
+    font-size: 0.9em;
+    font-family: opensans-bold;
 }
 
 .filterButton {
@@ -28,6 +29,15 @@ a {
     color: #51b5b1;
     font-size: 0,8em;
 }
+
+.big {
+    font-size: 1.5em;
+}
+
+a {
+    color: #51b5b1;
+}
+
 
 select {
     height: 40px;
@@ -50,13 +60,22 @@ html {
     float: right;
 }
 
+.cancelIcon {
+    filter: invert(77%) sepia(40%) saturate(4%) hue-rotate(348deg) brightness(105%) contrast(91%);
+    width: 12px;
+}
+
+.backIcon {
+    filter: invert(67%) sepia(54%) saturate(385%) hue-rotate(129deg) brightness(87%) contrast(84%);
+    transform:rotate(90deg);
+}
+
 .ticketAmount {
     font-size:2em;
 }
 
 .bold {
     font-family: opensans-bold;
-    font-size: 1.2em;
 }
 
 .tickets {
@@ -70,9 +89,9 @@ html {
     color: grey;
 }
 
-    .columnHeader th {
-        border-top: none;
-    }
+.columnHeader th {
+    border-top: none;
+}
 
 .artistPic {
     width: 130px;
