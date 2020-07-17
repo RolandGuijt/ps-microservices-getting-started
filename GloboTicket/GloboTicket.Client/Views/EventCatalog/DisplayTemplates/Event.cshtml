@@ -4,7 +4,7 @@
         <img class="artistPic" src="@Model.ImageUrl" alt="Artist pic" />
     </td>
     <td>
-        @Model.Date
+        @Model.Date.ToShortDateString()
     </td>
     <td>
         @Model.Name
@@ -12,7 +12,7 @@
     <td>
         @Model.Artist
     </td>
-    <td class="bold">
+    <td class="bold big">
         $@Model.Price
     </td>
     <td>

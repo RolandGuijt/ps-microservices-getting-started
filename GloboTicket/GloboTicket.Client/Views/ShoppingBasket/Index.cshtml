@@ -3,20 +3,23 @@
 <table class="table">
     <thead>
         <tr class="columnHeader">
-            <th>Event name</th>
-            <th>Date</th>
-            <th>Price</th>
-            <th>Quantity</th>
-            <th>Total</th>
+            <th>EVENT NAME</th>
+            <th>DATE</th>
+            <th>PRICE PER TICKET</th>
+            <th>QUANTITY</th>
+            <th>TOTAL</th>
             <th></th>
         </tr>
     </thead>
     <tbody>
         @Html.EditorForModel()
         <tr>
-            <td colspan="4"></td>
-            <td>$@Model.Sum(bl => bl.Price * bl.Quantity)</td>
+            <td colspan="4">
+                <a asp-controller="EventCatalog" asp-action="Index">
+                    <img class="backIcon" src="~/img/arrow-down.svg" /> Back to event catalog
+                </a>
+            </td>
+            <td class="bold big">$@Model.Sum(bl => bl.Price * bl.Quantity)</td>
         </tr>
     </tbody>
 </table>
-<a asp-controller="EventCatalog" asp-action="Index">Back to event catalog</a>
