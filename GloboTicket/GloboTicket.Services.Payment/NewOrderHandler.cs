@@ -5,11 +5,11 @@ using Rebus.Handlers;
 
 namespace GloboTicket.Services.Payment
 {
-    public class NewOrderHandler : IHandleMessages<NewOrderMessage>
+    public class NewOrderHandler : IHandleMessages<PaymentRequestMessage>
     {
-        public Task Handle(NewOrderMessage message)
+        public Task Handle(PaymentRequestMessage message)
         {
-            Console.WriteLine($"New order received with {message.PriceTotal} total value");
+            Console.WriteLine($"Payment request received for basket id {message.BasketId}.");
             return Task.CompletedTask;
         }
     }
