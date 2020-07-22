@@ -10,6 +10,7 @@ using Microsoft.Extensions.Hosting;
 using Rebus.Config;
 using Rebus.Routing.TypeBased;
 using Rebus.ServiceProvider;
+using GloboTicket.Messages;
 
 namespace GloboTicket.Web
 {
