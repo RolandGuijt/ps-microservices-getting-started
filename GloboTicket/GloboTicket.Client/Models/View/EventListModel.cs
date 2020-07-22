@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using GloboTicket.Client.Models.Api;
+using GloboTicket.Web.Models.Api;
 
-namespace GloboTicket.Client.Models.View
+namespace GloboTicket.Web.Models.View
 {
     public class EventListModel
     {

@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using GloboTicket.Client.Models.Api;
+using GloboTicket.Web.Models.Api;
 
-namespace GloboTicket.Client.Services
+namespace GloboTicket.Web.Services
 {
     public interface IEventCatalogService
     {

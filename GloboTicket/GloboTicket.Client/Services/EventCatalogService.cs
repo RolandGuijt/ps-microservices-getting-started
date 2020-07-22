@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
-using GloboTicket.Client.Extensions;
-using GloboTicket.Client.Models.Api;
+using GloboTicket.Web.Extensions;
+using GloboTicket.Web.Models.Api;
 
-namespace GloboTicket.Client.Services
+namespace GloboTicket.Web.Services
 {
     public class EventCatalogService : IEventCatalogService
     {

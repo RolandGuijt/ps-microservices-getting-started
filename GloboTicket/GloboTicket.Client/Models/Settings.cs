@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GloboTicket.Client.Models
+namespace GloboTicket.Web.Models
 {
     public class Settings
     {

@@ -1,8 +1,8 @@
 ﻿using System;
-using GloboTicket.Client.Models;
+using GloboTicket.Web.Models;
 using Microsoft.AspNetCore.Http;
 
-namespace GloboTicket.Client.Extensions
+namespace GloboTicket.Web.Extensions
 {
     public static  class RequestCookieCollection
     {

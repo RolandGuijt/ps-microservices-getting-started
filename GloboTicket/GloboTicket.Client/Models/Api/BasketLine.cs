@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace GloboTicket.Client.Models.Api
+namespace GloboTicket.Web.Models.Api
 {
     public class BasketLine
     {
