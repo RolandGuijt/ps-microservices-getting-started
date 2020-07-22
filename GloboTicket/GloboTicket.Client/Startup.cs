@@ -1,7 +1,6 @@
 using System;
-using GloboTicket.Client.Models;
-using GloboTicket.Client.Services;
-using GloboTicket.Messages;
+using GloboTicket.Web.Services;
+using GloboTicket.Web.Models;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Azure.Storage;
@@ -12,7 +11,7 @@ using Rebus.Config;
 using Rebus.Routing.TypeBased;
 using Rebus.ServiceProvider;
 
-namespace GloboTicket.Client
+namespace GloboTicket.Web
 {
     public class Startup
     {

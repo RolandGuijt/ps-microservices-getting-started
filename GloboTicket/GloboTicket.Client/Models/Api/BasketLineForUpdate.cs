@@ -1,7 +1,7 @@
 ﻿using System;
 using System.ComponentModel.DataAnnotations;
 
-namespace GloboTicket.Client.Models.Api
+namespace GloboTicket.Web.Models.Api
 {
     public class BasketLineForUpdate
     {

@@ -6,7 +6,7 @@ using System.Net.Http.Headers;
 using System.Text.Json;
 using System.Threading.Tasks;
 
-namespace GloboTicket.Client.Extensions
+namespace GloboTicket.Web.Extensions
 {
     public static class HttpClientExtensions
     {

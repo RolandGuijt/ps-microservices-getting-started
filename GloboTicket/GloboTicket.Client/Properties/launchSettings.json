@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "GloboTicket.Client": {
+    "GloboTicket.Web": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {

@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Threading.Tasks;
-using GloboTicket.Client.Extensions;
-using GloboTicket.Client.Models;
-using GloboTicket.Client.Models.Api;
-using GloboTicket.Client.Models.View;
-using GloboTicket.Client.Services;
+using GloboTicket.Web.Extensions;
+using GloboTicket.Web.Models;
+using GloboTicket.Web.Models.Api;
+using GloboTicket.Web.Models.View;
+using GloboTicket.Web.Services;
 using Microsoft.AspNetCore.Mvc;
 
-namespace GloboTicket.Client.Controllers
+namespace GloboTicket.Web.Controllers
 {
     public class EventCatalogController : Controller
     {

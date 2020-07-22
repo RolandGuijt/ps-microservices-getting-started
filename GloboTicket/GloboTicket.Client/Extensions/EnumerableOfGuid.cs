@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace GloboTicket.Client.Extensions
+namespace GloboTicket.Web.Extensions
 {
     public static class EnumerableOfGuid
     {
