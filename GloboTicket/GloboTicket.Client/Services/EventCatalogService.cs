@@ -28,12 +28,6 @@ namespace GloboTicket.Web.Services
             return await response.ReadContentAs<List<Event>>();
         }
 
-        public async Task<IEnumerable<Event>> GetByEventIds(IEnumerable<Guid> ids)
-        {
-            var response = await client.GetAsync($"/api/events{ids.ToQueryString()}");
-            return await response.ReadContentAs<List<Event>>();
-        }
-
         public async Task<Event> GetEvent(Guid id)
         {
             var response = await client.GetAsync($"/api/events/{id}");
