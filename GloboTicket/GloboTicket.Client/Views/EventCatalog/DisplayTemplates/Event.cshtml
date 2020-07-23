@@ -1,10 +1,10 @@
-﻿@model GloboTicket.Web.Models.Api.Event
+﻿@model GloboTicket.Grpc.Event
 <tr>
     <td>
         <img class="artistPic" src="@Model.ImageUrl" alt="Artist pic" />
     </td>
     <td>
-        @Model.Date.ToShortDateString()
+        @Model.Date.ToDateTime().ToShortDateString()
     </td>
     <td>
         @Model.Name

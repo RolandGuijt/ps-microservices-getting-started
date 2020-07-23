@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using GloboTicket.Web.Models.Api;
+using GloboTicket.Grpc;
 
 namespace GloboTicket.Web.Models.View
 {
