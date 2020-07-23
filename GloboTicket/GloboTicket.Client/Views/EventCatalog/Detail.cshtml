@@ -29,24 +29,5 @@
         <hr />
     </div>
 </div>
-<div class="row mt-4">
-    <div class="col offset-4">
-        <form class="form" asp-action="AddLine" asp-controller="ShoppingBasket">
-            <div class="row">
-                <label class="columnHeader mt-2">QUANTITY:</label>
-                <select name="TicketAmount" class="ml-5 w-25">
-                    <option value="1">1</option>
-                    <option value="2">2</option>
-                    <option value="3">3</option>
-                    <option value="4">4</option>
-                    <option value="5">5</option>
-                </select>
-                <input asp-for="EventId" type="hidden" />
-                <input asp-for="Price" type="hidden" />
-                <button type="submit" class="btn btn-primary ml-4">PLACE ORDER</button>
-            </div>
-        </form>
-    </div>
-</div>
 
 

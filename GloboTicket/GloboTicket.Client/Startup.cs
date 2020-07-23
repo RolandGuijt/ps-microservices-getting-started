@@ -29,8 +29,6 @@ namespace GloboTicket.Web
 
             services.AddHttpClient<IEventCatalogService, EventCatalogService>(c => 
                 c.BaseAddress = new Uri(config["ApiConfigs:EventCatalog:Uri"]));
-            services.AddHttpClient<IShoppingBasketService, ShoppingBasketService>(c => 
-                c.BaseAddress = new Uri(config["ApiConfigs:ShoppingBasket:Uri"]));
 
             services.AddSingleton<Settings>();
         }

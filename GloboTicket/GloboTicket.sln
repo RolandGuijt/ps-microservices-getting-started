@@ -9,8 +9,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{F3
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Frontends", "Frontends", "{825D4E4F-3BFF-4546-96AB-8AB83D95722D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloboTicket.Services.ShoppingBasket", "GloboTicket.Services.ShoppingBasket\GloboTicket.Services.ShoppingBasket.csproj", "{CD16338F-F1A0-44F7-834E-7813F3EF63FE}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GloboTicket.Services.EventCatalog", "GloboTicket.Services.EventCatalog\GloboTicket.Services.EventCatalog.csproj", "{E2C27A67-A664-4501-8045-C71F13924979}"
 EndProject
 Global
@@ -23,10 +21,6 @@ Global
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{CD16338F-F1A0-44F7-834E-7813F3EF63FE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CD16338F-F1A0-44F7-834E-7813F3EF63FE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CD16338F-F1A0-44F7-834E-7813F3EF63FE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CD16338F-F1A0-44F7-834E-7813F3EF63FE}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E2C27A67-A664-4501-8045-C71F13924979}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{E2C27A67-A664-4501-8045-C71F13924979}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E2C27A67-A664-4501-8045-C71F13924979}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -37,7 +31,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{0848F9B8-B1CC-412F-9A8C-A09058575A1E} = {825D4E4F-3BFF-4546-96AB-8AB83D95722D}
-		{CD16338F-F1A0-44F7-834E-7813F3EF63FE} = {F3632F51-056C-43C5-9E59-8D371E99C8BF}
 		{E2C27A67-A664-4501-8045-C71F13924979} = {F3632F51-056C-43C5-9E59-8D371E99C8BF}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
