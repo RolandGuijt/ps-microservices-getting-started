@@ -17,7 +17,7 @@ namespace GloboTicket.Services.Payment
             _config = config;
         }
 
-        protected override Task ExecuteAsync(CancellationToken stoppingToken)
+        protected override async Task ExecuteAsync(CancellationToken stoppingToken)
         {
             var storageAccount = CloudStorageAccount.Parse(_config["AzureQueues:ConnectionString"]);
 
@@ -27,11 +27,7 @@ namespace GloboTicket.Services.Payment
                 .Transport(t => t.UseAzureStorageQueues(storageAccount, _config["AzureQueues:QueueName"]))
                 .Start();
 
-            while (!stoppingToken.IsCancellationRequested)
-            {
-            }
-
-            return Task.CompletedTask;
+            await Task.Delay(Timeout.InfiniteTimeSpan, stoppingToken);
         }
     }
 }

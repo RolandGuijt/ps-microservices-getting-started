@@ -9,9 +9,6 @@ namespace GloboTicket.Services.Payment
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();
-            Console.WriteLine("Listening for new orders..");
-            Console.WriteLine("Press enter to quit");
-            Console.ReadLine();
         }
 
 
