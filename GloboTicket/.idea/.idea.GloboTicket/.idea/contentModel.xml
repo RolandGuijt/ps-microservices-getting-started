@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="C:\Users\rolan\AppData\Local\JetBrains\Rider2020.3\extResources" t="IncludeRecursive" />
+    <e p="C:\Users\rolan\AppData\Local\JetBrains\Rider2020.3\resharper-host\Local\Transient\Rider\v203\SolutionCaches\_GloboTicket.913855353.00" t="ExcludeRecursive" />
+    <e p="C:\Users\rolan\AppData\Roaming\JetBrains\Rider2020.3\consoles\db" t="IncludeRecursive" />
+    <e p="C:\Users\rolan\AppData\Roaming\JetBrains\Rider2020.3\extensions" t="IncludeRecursive" />
+    <e p="C:\Users\rolan\source\repos\ps-microservices-path\GloboTicket" t="IncludeFlat">
+      <e p="Frontends" t="Include" />
+      <e p="GloboTicket.Client" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="appsettings.Production.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="EventCatalogController.cs" t="Include" />
+          <e p="ShoppingBasketController.cs" t="Include" />
+        </e>
+        <e p="extensions" t="Include">
+          <e p="EnumerableOfGuid.cs" t="Include" />
+          <e p="HttpClientExtension.cs" t="Include" />
+          <e p="IRequestCookieCollection.cs" t="Include" />
+        </e>
+        <e p="GloboTicket.Web.csproj" t="IncludeRecursive" />
+        <e p="Models" t="Include">
+          <e p="Api" t="Include">
+            <e p="Basket.cs" t="Include" />
+            <e p="BasketForCreation.cs" t="Include" />
+            <e p="BasketLine.cs" t="Include" />
+            <e p="BasketLineForCreation.cs" t="Include" />
+            <e p="BasketLineForUpdate.cs" t="Include" />
+            <e p="Category.cs" t="Include" />
+            <e p="Event.cs" t="Include" />
+            <e p="EventCategory.cs" t="Include" />
+          </e>
+          <e p="Settings.cs" t="Include" />
+          <e p="View" t="Include">
+            <e p="BasketLineViewModel.cs" t="Include" />
+            <e p="ErrorViewModel.cs" t="Include" />
+            <e p="EventListModel.cs" t="Include" />
+          </e>
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="GloboTicket.Web.AssemblyInfo.cs" t="Include" />
+              <e p="GloboTicket.Web.RazorAssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="GloboTicketClient - Web Deploy.pubxml" t="Include" />
+          </e>
+        </e>
+        <e p="Services" t="Include">
+          <e p="EventCatalogService.cs" t="Include" />
+          <e p="IEventCatalogService.cs" t="Include" />
+          <e p="IShoppingBasketService.cs" t="Include" />
+          <e p="ShoppingBasketService.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+        <e p="Views" t="Include">
+          <e p="_ViewImports.cshtml" t="Include" />
+          <e p="_ViewStart.cshtml" t="Include" />
+          <e p="EventCatalog" t="Include">
+            <e p="Detail.cshtml" t="Include" />
+            <e p="DisplayTemplates" t="Include">
+              <e p="Event.cshtml" t="Include" />
+            </e>
+            <e p="Index.cshtml" t="Include" />
+          </e>
+          <e p="Shared" t="Include">
+            <e p="_Layout.cshtml" t="Include" />
+            <e p="_ShoppingCartWidget.cshtml" t="Include" />
+            <e p="_ValidationScriptsPartial.cshtml" t="Include" />
+            <e p="Error.cshtml" t="Include" />
+          </e>
+          <e p="ShoppingBasket" t="Include">
+            <e p="EditorTemplates" t="Include">
+              <e p="BasketLineViewModel.cshtml" t="Include" />
+            </e>
+            <e p="Index.cshtml" t="Include" />
+            <e p="Thanks.cshtml" t="Include" />
+          </e>
+        </e>
+        <e p="wwwroot" t="Include">
+          <e p="css" t="Include">
+            <e p="site.css" t="Include" />
+          </e>
+          <e p="favicon.ico" t="Include" />
+          <e p="fonts" t="Include">
+            <e p="OpenSans-Bold.ttf" t="Include" />
+            <e p="OpenSans-BoldItalic.ttf" t="Include" />
+            <e p="OpenSans-ExtraBold.ttf" t="Include" />
+            <e p="OpenSans-ExtraBoldItalic.ttf" t="Include" />
+            <e p="OpenSans-Italic.ttf" t="Include" />
+            <e p="OpenSans-Light.ttf" t="Include" />
+            <e p="OpenSans-LightItalic.ttf" t="Include" />
+            <e p="OpenSans-Regular.ttf" t="Include" />
+            <e p="OpenSans-Semibold.ttf" t="Include" />
+            <e p="OpenSans-SemiboldItalic.ttf" t="Include" />
+          </e>
+          <e p="img" t="Include">
+            <e p="_Export_globoticket-horizontal-white.png" t="Include" />
+            <e p="arrow-down.svg" t="Include" />
+            <e p="banjo.jpg" t="Include" />
+            <e p="cart-plus.svg" t="Include" />
+            <e p="michael.jpg" t="Include" />
+            <e p="musical.jpg" t="Include" />
+            <e p="times.svg" t="Include" />
+          </e>
+          <e p="lib" t="Include">
+            <e p="bootstrap" t="Include">
+              <e p="dist" t="Include">
+                <e p="css" t="Include">
+                  <e p="bootstrap-grid.css" t="Include" />
+                  <e p="bootstrap-grid.css.map" t="Include" />
+                  <e p="bootstrap-grid.min.css" t="Include" />
+                  <e p="bootstrap-grid.min.css.map" t="Include" />
+                  <e p="bootstrap-reboot.css" t="Include" />
+                  <e p="bootstrap-reboot.css.map" t="Include" />
+                  <e p="bootstrap-reboot.min.css" t="Include" />
+                  <e p="bootstrap-reboot.min.css.map" t="Include" />
+                  <e p="bootstrap.css" t="Include" />
+                  <e p="bootstrap.css.map" t="Include" />
+                  <e p="bootstrap.min.css" t="Include" />
+                  <e p="bootstrap.min.css.map" t="Include" />
+                </e>
+                <e p="js" t="Include">
+                  <e p="bootstrap.bundle.js" t="Include" />
+                  <e p="bootstrap.bundle.js.map" t="Include" />
+                  <e p="bootstrap.bundle.min.js" t="Include" />
+                  <e p="bootstrap.bundle.min.js.map" t="Include" />
+                  <e p="bootstrap.js" t="Include" />
+                  <e p="bootstrap.js.map" t="Include" />
+                  <e p="bootstrap.min.js" t="Include" />
+                  <e p="bootstrap.min.js.map" t="Include" />
+                </e>
+              </e>
+              <e p="LICENSE" t="Include" />
+            </e>
+            <e p="jquery" t="Include">
+              <e p="dist" t="Include">
+                <e p="jquery.js" t="Include" />
+                <e p="jquery.min.js" t="Include" />
+                <e p="jquery.min.map" t="Include" />
+              </e>
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+            <e p="jquery-validation" t="Include">
+              <e p="dist" t="Include">
+                <e p="additional-methods.js" t="Include" />
+                <e p="additional-methods.min.js" t="Include" />
+                <e p="jquery.validate.js" t="Include" />
+                <e p="jquery.validate.min.js" t="Include" />
+              </e>
+              <e p="LICENSE.md" t="Include" />
+            </e>
+            <e p="jquery-validation-unobtrusive" t="Include">
+              <e p="jquery.validate.unobtrusive.js" t="Include" />
+              <e p="jquery.validate.unobtrusive.min.js" t="Include" />
+              <e p="LICENSE.txt" t="Include" />
+            </e>
+          </e>
+        </e>
+      </e>
+      <e p="GloboTicket.Messages" t="IncludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="GloboTicket.Messages.csproj" t="IncludeRecursive" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netstandard2.0" t="Include">
+              <e p="GloboTicket.Messages.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="PaymentRequestMessage.cs" t="Include" />
+      </e>
+      <e p="GloboTicket.Services.EventCatalog" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="CategoryController.cs" t="Include" />
+          <e p="EventController.cs" t="Include" />
+        </e>
+        <e p="DbContexts" t="Include">
+          <e p="EventCatalogDbContext.cs" t="Include" />
+        </e>
+        <e p="Entities" t="Include">
+          <e p="Category.cs" t="Include" />
+          <e p="Event.cs" t="Include" />
+        </e>
+        <e p="GloboTicket.Services.EventCatalog.csproj" t="IncludeRecursive" />
+        <e p="Migrations" t="Include">
+          <e p="20200630132753_initial.cs" t="Include" />
+          <e p="20200630132753_initial.Designer.cs" t="Include" />
+          <e p="20200711142242_InitialData.cs" t="Include" />
+          <e p="20200711142242_InitialData.Designer.cs" t="Include" />
+          <e p="EventCatalogDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="CategoryDto.cs" t="Include" />
+          <e p="EventDto.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="GloboTicket.Services.EventCatalog.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Profiles" t="Include">
+          <e p="CategoryProfile.cs" t="Include" />
+          <e p="EventProfile.cs" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="GloboTicketServicesEventCatalog - Web Deploy.pubxml" t="Include" />
+          </e>
+          <e p="serviceDependencies.GloboTicketServicesEventCatalog - Web Deploy.json" t="Include" />
+          <e p="serviceDependencies.json" t="Include" />
+        </e>
+        <e p="Repositories" t="Include">
+          <e p="CategoryRepository.cs" t="Include" />
+          <e p="EventRepository.cs" t="Include" />
+          <e p="ICategoryRepository.cs" t="Include" />
+          <e p="IEventRepository.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="GloboTicket.Services.Payment" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="GloboTicket.Services.Payment.csproj" t="IncludeRecursive" />
+        <e p="NewOrderHandler.cs" t="Include" />
+        <e p="NewOrderWorkerService.cs" t="Include" />
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="GloboTicket.Services.Payment.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+        </e>
+      </e>
+      <e p="GloboTicket.Services.ShoppingBasket" t="IncludeRecursive">
+        <e p="appsettings.Development.json" t="Include" />
+        <e p="appsettings.json" t="Include" />
+        <e p="bin" t="ExcludeRecursive" />
+        <e p="Controllers" t="Include">
+          <e p="BasketLinesController.cs" t="Include" />
+          <e p="BasketsController.cs" t="Include" />
+        </e>
+        <e p="DbContexts" t="Include">
+          <e p="ShoppingBasketDbContext.cs" t="Include" />
+        </e>
+        <e p="Entities" t="Include">
+          <e p="Basket.cs" t="Include" />
+          <e p="BasketLine.cs" t="Include" />
+          <e p="Event.cs" t="Include" />
+        </e>
+        <e p="extensions" t="Include">
+          <e p="HttpClientExtensions.cs" t="Include" />
+        </e>
+        <e p="GloboTicket.Services.ShoppingBasket.csproj" t="IncludeRecursive" />
+        <e p="Migrations" t="Include">
+          <e p="20200630142717_InitialMigration.cs" t="Include" />
+          <e p="20200630142717_InitialMigration.Designer.cs" t="Include" />
+          <e p="20200711083614_Events.cs" t="Include" />
+          <e p="20200711083614_Events.Designer.cs" t="Include" />
+          <e p="20200711091215_BasketLinePrice.cs" t="Include" />
+          <e p="20200711091215_BasketLinePrice.Designer.cs" t="Include" />
+          <e p="ShoppingBasketDbContextModelSnapshot.cs" t="Include" />
+        </e>
+        <e p="Models" t="Include">
+          <e p="Basket.cs" t="Include" />
+          <e p="BasketForCreation.cs" t="Include" />
+          <e p="BasketLine.cs" t="Include" />
+          <e p="BasketLineForCreation.cs" t="Include" />
+          <e p="BasketLineForUpdate.cs" t="Include" />
+          <e p="Event.cs" t="Include" />
+        </e>
+        <e p="obj" t="ExcludeRecursive">
+          <e p="Debug" t="Include">
+            <e p="netcoreapp3.1" t="Include">
+              <e p="GloboTicket.Services.ShoppingBasket.AssemblyInfo.cs" t="Include" />
+            </e>
+          </e>
+        </e>
+        <e p="Profiles" t="Include">
+          <e p="BasketLineProfile.cs" t="Include" />
+          <e p="BasketProfile.cs" t="Include" />
+          <e p="EventProfile.cs" t="Include" />
+        </e>
+        <e p="Program.cs" t="Include" />
+        <e p="Properties" t="Include">
+          <e p="launchSettings.json" t="Include" />
+          <e p="PublishProfiles" t="Include">
+            <e p="GloboTicketServicesShoppingBasket - Web Deploy.pubxml" t="Include" />
+          </e>
+          <e p="serviceDependencies.GloboTicketServicesShoppingBasket - Web Deploy.json" t="Include" />
+          <e p="serviceDependencies.json" t="Include" />
+        </e>
+        <e p="Repositories" t="Include">
+          <e p="BasketLinesRepository.cs" t="Include" />
+          <e p="BasketRepository.cs" t="Include" />
+          <e p="EventRepository.cs" t="Include" />
+          <e p="IBasketLinesRepository.cs" t="Include" />
+          <e p="IBasketRepository.cs" t="Include" />
+          <e p="IEventRepository.cs" t="Include" />
+        </e>
+        <e p="Services" t="Include">
+          <e p="EventCatalogService.cs" t="Include" />
+          <e p="IEventCatalogService.cs" t="Include" />
+        </e>
+        <e p="Startup.cs" t="Include" />
+      </e>
+      <e p="GloboTicket.sln" t="IncludeFlat" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Services" t="Include" />
+      <e p="Shared" t="Include" />
+    </e>
+  </component>
+</project>
