@@ -1,16 +1,18 @@
 # GloboTicket ASP.NET Core Microservices Sample Application
 
-GloboTicket is a sample ASP.NET Core Microservices application that you can learn about in the Pluralsight .NET Microservices Learning path. This path consists of the following courses:
+GloboTicket is a sample ASP.NET Core Microservices application that you can learn about in the Pluralsight <a href="https://app.pluralsight.com/paths/skills/net-microservices">.NET Microservices Learning</a> path. This path consists of the following courses:
 
-- Microservices: The Big Picture
-- Getting Started with ASP.NET Core Microservices
-- Microservices Communication in ASP.NET Core
-- Implementing a data management strategy for an ASP.NET Core Microservices Architecture
-- Securing Microservices in ASP.NET Core
-- Versioning and Evolving Microservices in ASP.NET Core
-- Deploying ASP.NET Core microservices using Kubernetes and AKS
-- Implementing cross-cutting concerns for ASP.NET Core microservices
-- Strategies for Microservice Scalability and Availability in ASP.NET Core
+| Title | Author | level | length | date |
+| :---- | :----- | :---- | :----- | :--- |
+| <a href='https://app.pluralsight.com/library/courses/microservices-big-picture/'>Microservices: The Big Picture</a>|Antonio Goncalves|Beginner|1h 45m|Apr 16, 2018|
+| <a href='https://app.pluralsight.com/library/courses/getting-started-asp-dot-net-core-microservices/'>ASP.NET Core 3 Microservices: Getting Started</a>|Roland Guijt|Beginner|1h 21m|Sep 24, 2020|
+| <a href='https://app.pluralsight.com/library/courses/microservices-communication-asp-dot-net-core'>Microservices Communication in ASP.NET Core 3</a>|Gill Cleeren|Intermediate|3h 16m|Sep 30, 2020|
+| <a href='https://app.pluralsight.com/library/courses/implementing-data-management-strategy-asp-dot-net-core-microservices-architecture'>Implementing a Data Management Strategy for an ASP.NET Core Microservices Architecture</a>|Neil Morrissey|Intermediate|1h 53m|Dec 11, 2020|
+| <a href='https://app.pluralsight.com/library/courses/securing-microservices-asp-dot-net-core'>Securing Microservices in ASP.NET Core</a>|Kevin Dockx|Advanced|3h 37m|Nov 30, 2020|
+| <a href='https://app.pluralsight.com/library/courses/versioning-evolving-microservices-asp-dot-net-core'>Versioning and Evolving Microservices in ASP.NET Core 3</a>|Mark Heath|Intermediate|1h 41m|Sep 22, 2020|
+| <a href='https://app.pluralsight.com/library/courses/deploying-asp-dot-net-core-microservices-kubernetes-aks'>Deploying ASP.NET Core 3 Microservices Using Kubernetes and AKS</a>|Marcel de Vries|Advanced|2h 7m|Nov 13, 2020|
+| <a href='https://app.pluralsight.com/library/courses/implementing-cross-cutting-concerns-asp-dot-net-core-microservices'>Implementing Cross-cutting Concerns for ASP.NET Core 3 Microservices</a>|Steve Gordon|Intermediate|2h 8m|Nov 13, 2020|
+| <a href='https://app.pluralsight.com/library/courses/strategies-microservice-scalability-availability-asp-dot-net-core'>Strategies for Microservice Scalability and Availability in ASP.NET Core</a>|Rag Dhiman|Advanced|1h 55m|Nov 25, 2020|
 
 ### Prerequisites
 
